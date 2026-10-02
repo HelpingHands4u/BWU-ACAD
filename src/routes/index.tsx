@@ -1,9 +1,13 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import homeHtml from "../../public/index.html?raw";
 
-// The BWU site is served as static pages from /public; send visitors to its home page.
+// Serve the original BWU static home page directly at "/" (no redirect, no client 404).
 export const Route = createFileRoute("/")({
-  beforeLoad: () => {
-    throw redirect({ href: "/index-with-admin-login.html" });
+  server: {
+    handlers: {
+      GET: async () =>
+        new Response(homeHtml, { headers: { "content-type": "text/html; charset=utf-8" } }),
+    },
   },
   head: () => ({
     meta: [
