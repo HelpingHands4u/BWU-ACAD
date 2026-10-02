@@ -24,11 +24,11 @@ export const Route = createFileRoute("/api/chat")({
       POST: async ({ request }) => {
         const parsed = Body.safeParse(await request.json().catch(() => null));
         if (!parsed.success) return Response.json({ reply: "Invalid request." }, { status: 400 });
-        const key = process.env.LOVABLE_API_KEY;
+        const key = process.env["LOVABLE_API_KEY"];
         if (!key) return Response.json({ reply: "The AI is not configured." }, { status: 500 });
 
         const messages = (parsed.data.history ?? []).slice(-20);
-        if (!messages.length || messages[messages.length - 1].content !== parsed.data.message) {
+        if (messages.at(-1)?.content !== parsed.data.message) {
           messages.push({ role: "user", content: parsed.data.message });
         }
 
