@@ -7,5 +7,5 @@
 window.BWU_CONFIG = window.BWU_CONFIG || {
   API_BASE_URL: "",
   API_PREFIX: "/api/v1",
-  CHAT_ENDPOINT: "",
+  CHAT_ENDPOINT: "/api/chat",
 };

@@ -75,6 +75,17 @@
   .bwu-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}
   .bwu-chips button{border:1px solid rgba(59,51,184,.25);background:#fff;color:var(--bwu-chat-main2);border-radius:20px;padding:6px 11px;font-size:11px;font-weight:600;cursor:pointer}
   .bwu-chips button:hover{background:var(--bwu-chat-main2);color:#fff}
+  .bwu-side-btn{display:none}
+  @media(max-width:680px){
+    .bwu-side-btn{display:grid;place-items:center;position:fixed;left:14px;bottom:14px;z-index:9997;width:48px;height:48px;border-radius:14px;border:0;background:var(--bwu-chat-main);color:#fff;font-size:18px;box-shadow:0 10px 24px rgba(16,14,60,.3);cursor:pointer}
+    .sidebar.bwu-side-open,.side.bwu-side-open{display:block!important;position:fixed!important;top:0;left:0;bottom:0;width:min(280px,82vw)!important;overflow-y:auto;z-index:9996;transform:none!important;box-shadow:20px 0 50px rgba(0,0,0,.25)}
+    .layout,.app,.dash-layout{grid-template-columns:1fr!important}
+    .side:not(.bwu-side-open){display:none}
+    .main,.dash-main{min-width:0;width:100%}
+    form,.card,.panel{max-width:100%}
+    input,select,textarea{max-width:100%}
+    h1{word-break:break-word}
+  }
   .bwu-ch-form{display:flex;gap:8px;padding:12px;border-top:1px solid #ebe8f7;background:#fff}
   .bwu-ch-form input{flex:1;border:1px solid #e1def0;border-radius:12px;padding:11px 13px;font-size:13px;outline:none;background:var(--bwu-chat-bg)}
   .bwu-ch-form input:focus{border-color:var(--bwu-chat-main2)}
@@ -93,6 +104,21 @@
       if (nav) nav.classList.toggle("bwu-open");
     });
   });
+
+  /* ---------- Mobile sidebar toggle for dashboards ---------- */
+  var side = document.querySelector(".sidebar, aside.side, .side");
+  if (side && !document.querySelector(".sidebar-overlay")) {
+    var sb = document.createElement("button");
+    sb.className = "bwu-side-btn";
+    sb.setAttribute("aria-label", "Open sidebar menu");
+    sb.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    sb.addEventListener("click", function () {
+      var o = side.classList.toggle("bwu-side-open");
+      sb.innerHTML = o ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+    side.addEventListener("click", function (e) { if (e.target.closest("a")) { side.classList.remove("bwu-side-open"); sb.innerHTML = '<i class="fa-solid fa-bars"></i>'; } });
+    document.body.appendChild(sb);
+  }
 
   /* ---------- Floating chatbot ---------- */
   var fab = document.createElement("button");
@@ -149,7 +175,7 @@
       if (cfg.CHAT_ENDPOINT) {
         var r = await fetch(cfg.CHAT_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: text, history: history }) });
         var d = await r.json();
-        reply = d.reply || d.message || d.content || "No reply received.";
+        reply = (d && (d.reply || d.message)) || d.content || "No reply received.";
       } else {
         await new Promise(function (r) { setTimeout(r, 500); });
         reply = localReply(text);
@@ -157,7 +183,7 @@
     } catch (e) {
       reply = "Sorry, the assistant is unavailable right now.";
     }
-    t.textContent = reply;
+    t.innerHTML = reply.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
     history.push({ role: "assistant", content: reply });
     body.scrollTop = body.scrollHeight;
   }
