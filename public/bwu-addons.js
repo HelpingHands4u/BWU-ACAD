@@ -183,7 +183,7 @@
     } catch (e) {
       reply = "Sorry, the assistant is unavailable right now.";
     }
-    t.textContent = reply;
+    t.innerHTML = reply.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
     history.push({ role: "assistant", content: reply });
     body.scrollTop = body.scrollHeight;
   }
