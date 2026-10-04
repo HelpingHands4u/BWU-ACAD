@@ -9,6 +9,7 @@ import {
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
+import "../lib/firebase-browser-bridge";
 
 import appCss from "../styles.css?url";
 
