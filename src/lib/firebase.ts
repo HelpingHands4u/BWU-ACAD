@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 
@@ -10,6 +11,8 @@ import {
   getFirestore,
   doc,
   getDoc,
+  setDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -28,9 +31,12 @@ export const db = getFirestore(app);
 
 export {
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut,
   doc,
   getDoc,
+  setDoc,
+  serverTimestamp,
 };
 
 export default app;

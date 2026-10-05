@@ -1,220 +1,2609 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Student Dashboard — BWU</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<style>
-.student-dashboard-hero{background:linear-gradient(135deg,#172238 0%,#202d4a 100%);border-radius:18px;padding:25px 28px;color:#fff;box-shadow:0 14px 34px rgba(19,31,54,.12);margin-bottom:16px;overflow:hidden;position:relative}.student-dashboard-hero:after{content:"";position:absolute;right:-80px;top:-110px;width:270px;height:270px;border-radius:50%;background:rgba(99,102,241,.12);pointer-events:none}.student-hero-main{display:flex;align-items:center;gap:17px;position:relative;z-index:1}.student-avatar-xl{width:72px;height:72px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,#5b55ee,#3d72ed);font-size:22px;font-weight:800;box-shadow:0 10px 25px rgba(0,0,0,.18);flex:none}.student-hero-identity{flex:1}.student-eyebrow{font-size:9px;letter-spacing:1.35px;font-weight:800;color:#b8c4e8}.student-hero-identity h1{font-size:27px;line-height:1.1;margin:5px 0 5px;color:#fff;letter-spacing:-.6px}.student-hero-identity p{margin:0;color:#c6cee0;font-size:11px}.student-code-pill{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 10px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.08);border-radius:8px;color:#fff;font-size:9px}.student-code-pill i{color:#aeb8ff}.student-active-badge{display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:9px;background:rgba(34,197,94,.1);border:1px solid rgba(74,222,128,.2);color:#a7f3c5;font-size:9px;font-weight:800;align-self:flex-start}.student-active-badge span{width:7px;height:7px;border-radius:50%;background:#35d879;box-shadow:0 0 0 3px rgba(53,216,121,.1)}.student-hero-divider{height:1px;background:rgba(255,255,255,.1);margin:21px 0 16px}.student-summary-line{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:15px;position:relative;z-index:1}.student-summary-line div{padding-left:13px;border-left:2px solid rgba(255,255,255,.09)}.student-summary-line span{display:block;font-size:8px;color:#98a6c6;margin-bottom:5px}.student-summary-line strong{font-size:10px;color:#f4f6fb}.student-kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:15px}.student-kpi-card{position:relative;padding:16px 17px;border:1px solid #e3e8f0;border-radius:14px;background:#fff;box-shadow:0 5px 15px rgba(24,39,75,.035);min-height:116px}.student-kpi-card span{display:block;font-size:9px;color:#64748b;font-weight:650;margin-bottom:7px}.student-kpi-card strong{display:block;font-size:23px;line-height:1.1;color:#13203a;letter-spacing:-.4px}.student-kpi-card small{display:block;font-size:8px;color:#8792a6;margin-top:6px}.student-kpi-icon{position:absolute;right:14px;top:13px;width:32px;height:32px;border-radius:9px;background:#eef1ff;color:#5146e5;display:grid;place-items:center;font-size:13px}.student-overview-strip{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:0;background:#fff;border:1px solid #e3e8f0;border-radius:14px;margin-bottom:15px;overflow:hidden;box-shadow:0 5px 15px rgba(24,39,75,.025)}.overview-strip-title{display:flex;align-items:center;gap:10px;padding:15px 17px;background:#f8f9fd}.overview-dot{width:9px;height:9px;border-radius:50%;background:#5146e5;box-shadow:0 0 0 5px #eef0ff;flex:none}.overview-strip-title strong{display:block;font-size:10px;color:#1b2740}.overview-strip-title small{display:block;font-size:8px;color:#7b879b;margin-top:3px}.overview-mini{padding:14px 13px;border-left:1px solid #edf0f5}.overview-mini span{display:block;font-size:8px;color:#758197;margin-bottom:5px}.overview-mini strong{display:block;font-size:13px;color:#18243b}.overview-mini small{display:block;font-size:7.5px;color:#98a2b4;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:900px){.student-kpi-grid{grid-template-columns:repeat(2,1fr)}.student-overview-strip{grid-template-columns:1fr 1fr}.overview-strip-title{grid-column:1/-1}.student-summary-line{grid-template-columns:1fr 1fr}}@media(max-width:600px){.student-hero-main{align-items:flex-start;flex-wrap:wrap}.student-active-badge{margin-left:89px;margin-top:-7px}.student-summary-line{grid-template-columns:1fr}.student-summary-line div{border-left:0;border-top:1px solid rgba(255,255,255,.09);padding:9px 0 0}.student-kpi-grid{grid-template-columns:1fr}.student-overview-strip{grid-template-columns:1fr}.overview-strip-title{grid-column:auto}.overview-mini{border-left:0;border-top:1px solid #edf0f5}}
-</style>
-</head><body><div class="dashboard-page"><header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><span class="logo"><i class="fa-solid fa-building-columns"></i></span><span><strong>BWU</strong><small>Student Portal</small></span></a><div class="user-chip"><div class="avatar">SR</div><div><strong>Soyel Rana</strong><small>Student • CSE-CYS</small></div></div></div></header><div class="dash-layout"><aside class="sidebar"><div class="side-brand"><strong>Student Portal</strong><small>Academic workspace</small></div><div class="side-title">OVERVIEW</div><a class="side-link active" href="#"><i class="fa-solid fa-grid-2"></i> Dashboard</a><a class="side-link" href="#profile" data-view="profile"><i class="fa-solid fa-user"></i> Profile</a><div class="side-title">ACADEMICS</div><a class="side-link" href="#courses" data-view="courses"><i class="fa-solid fa-book"></i> Courses</a><a class="side-link" href="#attendance" data-view="attendance"><i class="fa-solid fa-calendar-check"></i> Attendance</a><a class="side-link" href="#timetable" data-timetable-open><i class="fa-solid fa-calendar-days"></i> Timetable</a><a class="side-link" href="#marks" data-view="marks"><i class="fa-solid fa-file-pen"></i> Marks & Exams</a><a class="side-link" href="#"><i class="fa-solid fa-chart-line"></i> Results</a><a class="side-link" href="#records" data-view="records"><i class="fa-solid fa-folder"></i> Records</a><div class="side-title">SYSTEM</div><a class="side-link" href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></aside>
-<main class="dash-main">
-<section class="student-dashboard-hero">
-  <div class="student-hero-main">
-    <div class="student-avatar-xl">SR</div>
-    <div class="student-hero-identity">
-      <span class="student-eyebrow">STUDENT DASHBOARD</span>
-      <h1>Soyel Rana Halder</h1>
-      <p>B.Tech CSE (Cyber Security) • Semester III • Section B</p>
-      <div class="student-code-pill"><i class="fa-solid fa-id-card"></i><strong>BWU/BCC/25/086</strong></div>
-    </div>
-    <div class="student-active-badge"><span></span> Active Student</div>
-  </div>
-  <div class="student-hero-divider"></div>
-  <div class="student-summary-line">
-    <div><span>Program</span><strong>B.Tech CSE Cyber Security</strong></div>
-    <div><span>Academic Year</span><strong>2026–27</strong></div>
-    <div><span>Current Term</span><strong>Semester III</strong></div>
-    <div><span>Enrolled Courses</span><strong>10 Subjects</strong></div>
-  </div>
-</section>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<div class="student-kpi-grid">
-  <div class="student-kpi-card"><div class="student-kpi-icon"><i class="fa-solid fa-graduation-cap"></i></div><span>Current CGPA</span><strong>8.1</strong><small>Overall academic score</small></div>
-  <div class="student-kpi-card"><div class="student-kpi-icon"><i class="fa-solid fa-chart-line"></i></div><span>Current SGPA</span><strong>—</strong><small>Semester III in progress</small></div>
-  <div class="student-kpi-card"><div class="student-kpi-icon"><i class="fa-solid fa-calendar-check"></i></div><span>Attendance</span><strong>92.2%</strong><small>June – September</small></div>
-  <div class="student-kpi-card"><div class="student-kpi-icon"><i class="fa-solid fa-award"></i></div><span>Credits</span><strong>22</strong><small>Current semester</small></div>
-</div>
+  <title>Student Dashboard — BWU</title>
 
-<section class="student-overview-strip">
-  <div class="overview-strip-title"><span class="overview-dot"></span><div><strong>Academic Overview</strong><small>Short summary of your current academic status</small></div></div>
-  <div class="overview-mini"><span>Attendance</span><strong>92.2%</strong><small>688 / 746 classes</small></div>
-  <div class="overview-mini"><span>Performance</span><strong>8.1 CGPA</strong><small>Sem I: 8.1 • Sem II: 6.9</small></div>
-  <div class="overview-mini"><span>MAR Points</span><strong>55</strong><small>4 recorded activities</small></div>
-  <div class="overview-mini"><span>Semester Status</span><strong>In Progress</strong><small>Semester III • June–September</small></div>
-</section>
-<div class="dash-grid"><section class="panel attendance-panel"><div class="panel-head"><h3>Attendance Activity</h3><span>Semester III • June – September</span></div><div class="attendance-summary"><div><strong>688</strong><span>Classes attended</span></div><div><strong>746</strong><span>Total classes</span></div><div><strong>92.2%</strong><span>Overall attendance • June – September</span></div></div><div class="attendance-heatmap-title"><span>Less</span><span>Monthly attendance • GitHub-style activity</span><span>More</span></div><div class="attendance-months"><div class="attendance-month pre-semester"><div class="month-head"><strong>Jan</strong><span>Pre-semester</span></div><div class="month-heatmap inactive-month"><span>Semester III not started</span></div></div><div class="attendance-month pre-semester"><div class="month-head"><strong>Feb</strong><span>Pre-semester</span></div><div class="month-heatmap inactive-month"><span>Semester III not started</span></div></div><div class="attendance-month pre-semester"><div class="month-head"><strong>Mar</strong><span>Pre-semester</span></div><div class="month-heatmap inactive-month"><span>Semester III not started</span></div></div><div class="attendance-month pre-semester"><div class="month-head"><strong>Apr</strong><span>Pre-semester</span></div><div class="month-heatmap inactive-month"><span>Semester III not started</span></div></div><div class="attendance-month pre-semester"><div class="month-head"><strong>May</strong><span>Pre-semester</span></div><div class="month-heatmap inactive-month"><span>Semester III not started</span></div></div><div class="attendance-month"><div class="month-head"><strong>Jun</strong><span>78/84 • 92.9%</span></div><div class="month-heatmap"><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat "></i><i class="heat "></i></div></div><div class="attendance-month"><div class="month-head"><strong>Jul</strong><span>80/88 • 90.9%</span></div><div class="month-heatmap"><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat "></i><i class="heat "></i><i class="heat "></i></div></div><div class="attendance-month"><div class="month-head"><strong>Aug</strong><span>82/88 • 93.2%</span></div><div class="month-heatmap"><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat "></i><i class="heat "></i></div></div><div class="attendance-month"><div class="month-head"><strong>Sep</strong><span>70/76 • 92.1%</span></div><div class="month-heatmap"><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l4"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l3"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat l2"></i><i class="heat "></i><i class="heat "></i></div></div></div><div class="heat-legend">Less <i></i><i></i><i></i><i></i> More</div></section>
-<section class="panel"><div class="panel-head"><h3>CGPA / SGPA</h3><span>Academic performance</span></div><div class="cgpa-ring"><div class="ring"><div class="ring-text"><strong>8.1</strong><small>CGPA</small></div></div><div class="semester-list"><div class="sem"><span>Semester I</span><strong>8.1</strong></div><div class="sem"><span>Semester II</span><strong>6.9</strong></div><div class="sem current"><span>Semester III</span><strong>In progress</strong></div><div class="sem"><span>Semester IV</span><strong>Upcoming</strong></div></div></div></section></div>
+  <meta
+    name="description"
+    content="Brainware University Student Academic Management Portal"
+  />
 
-<section class="panel feature-view profile-view" id="profile-view">
-  <div class="profile-hero">
-    <div class="profile-avatar-large">SR</div>
-    <div class="profile-identity">
-      <span class="profile-eyebrow">STUDENT PROFILE</span>
-      <h2>Soyel Rana Halder</h2>
-      <p>B.Tech CSE Cybersecurity</p>
-      <span class="profile-code"><i class="fa-solid fa-id-card"></i> Student Code: BWU/BCC/25/086</span>
-    </div>
-    <div class="profile-status"><span></span> Active Student</div>
-  </div>
-  <div class="profile-divider"></div>
-  <div class="profile-info-grid">
-    <div class="profile-info-card"><span>Student Name</span><strong>Soyel Rana Halder</strong></div>
-    <div class="profile-info-card"><span>Student Code</span><strong>BWU/BCC/25/086</strong></div>
-    <div class="profile-info-card"><span>Program / Degree</span><strong>B.Tech CSE Cybersecurity</strong></div>
-    <div class="profile-info-card"><span>Registered University Email</span><strong>DeveloperS.student@srh.me</strong></div>
-    <div class="profile-info-card"><span>Current Academic Term</span><strong>Semester III (In Progress)</strong></div>
-    <div class="profile-info-card"><span>Cumulative CGPA</span><strong>8.10</strong></div>
-    <div class="profile-info-card"><span>Total Classes Attended (Till Sept)</span><strong>37 / 55 <em>(67.3%)</em></strong></div>
-    <div class="profile-info-card"><span>Enrolled Courses</span><strong>10 Active Subjects</strong></div>
-  </div>
-  <div class="profile-note"><i class="fa-solid fa-shield-halved"></i><div><strong>Academic account</strong><small>Your profile information is currently displayed from the frontend demo data and can later be connected to the student database.</small></div></div>
-</section>
+  <link rel="icon" href="/bwu-favicon.ico" type="image/x-icon" />
 
-<section class="panel feature-view" id="courses-view">
-  <div class="panel-head"><div><h3>Courses</h3><span>Semester III • June – September</span></div><span class="course-count">10 Courses</span></div>
-  <div class="course-name-grid" id="courseNameList"></div>
-</section>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-<section class="panel feature-view" id="attendance-view">
-  <div class="panel-head"><div><h3>Attendance</h3><span>Course-wise attendance • June – September</span></div><span>Hover a course to highlight its monthly presence</span></div>
-  <div class="attendance-total-strip"><div><strong id="attendedTotal">—</strong><span>Classes attended</span></div><div><strong id="classTotal">—</strong><span>Total classes</span></div><div><strong id="attendanceOverall">—</strong><span>Overall attendance</span></div></div>
-  <div class="course-attendance-list" id="courseAttendanceList"></div>
-  <div class="routine-note"><i class="fa-solid fa-calendar-days"></i><div><strong>Routine-linked view</strong><small>June–September blocks represent Semester III attendance activity; January–May are pre-semester and excluded from totals. Connect the routine/attendance database later to replace the demo counts with actual class dates.</small></div></div>
-</section>
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
 
-<section class="panel feature-view" id="marks-view">
-  <div class="panel-head"><div><h3>Marks & Exams</h3><span>Semester III • CT01 completed</span></div><span class="course-count">CT02 / Term End pending</span></div>
-  <div class="course-table-wrap">
-    <table class="course-table marks-exams-table">
-      <thead><tr><th>Sl. No.</th><th>Course Name</th><th>CT01 / 20</th><th>CT02 / 20</th><th>Term End-III / 100</th></tr></thead>
-      <tbody id="marksRows"></tbody>
-    </table>
-  </div>
-  <p class="data-note">CT01 marks are recorded. CT02 and Term End-III will remain blank until those assessments are completed.</p>
-</section>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
 
-<div class="activity-grid"><section class="panel"><div class="panel-head"><h3>Academic Activity</h3><span>Recent</span></div><div class="activity-list"><div class="activity-row"><div><i class="fa-solid fa-file-pen"></i><span><strong>Class Test 2</strong><small>Marks record updated</small></span></div><span class="activity-score">5 courses</span></div><div class="activity-row"><div><i class="fa-solid fa-calendar-check"></i><span><strong>Attendance updated</strong><small>Latest class records</small></span></div><span class="activity-score">92%</span></div><div class="activity-row"><div><i class="fa-solid fa-bell"></i><span><strong>New university notice</strong><small>Examination registration</small></span></div><span class="activity-score">New</span></div></div></section>
-<section class="panel"><div class="panel-head"><h3>Upcoming</h3><span>Academic calendar</span></div><div class="activity-list"><div class="activity-row"><div><i class="fa-solid fa-clock"></i><span><strong>Next class</strong><small>Check timetable</small></span></div><span class="activity-score">Today</span></div><div class="activity-row"><div><i class="fa-solid fa-clipboard-check"></i><span><strong>Examination</strong><small>Registration window</small></span></div><span class="activity-score">Soon</span></div></div></section></div>
-<section class="panel marks-panel"><div class="panel-head"><h3>Marks Record</h3><span>Semester II • Class Tests</span></div><table class="marks-table"><thead><tr><th>Course Code</th><th>CT1 / 20</th><th>CT2 / 20</th><th>Assessment</th></tr></thead><tbody>
-<tr><td>BBS00002</td><td><span class="mark good">12</span></td><td><span class="mark good">9</span></td><td><span class="total-pill">Recorded</span></td></tr>
-<tr><td>BBS00010</td><td><span class="mark good">16</span></td><td><span class="mark good">16</span></td><td><span class="total-pill">Recorded</span></td></tr>
-<tr><td>BES00006</td><td>—</td><td><span class="mark mid">12</span></td><td><span class="total-pill">Partial</span></td></tr>
-<tr><td>BES00018</td><td>—</td><td><span class="mark mid">8</span></td><td><span class="total-pill">Partial</span></td></tr>
-<tr><td>BHS07008 (T)</td><td>—</td><td><span class="mark good">16.5</span></td><td><span class="total-pill">Partial</span></td></tr>
-</tbody></table></section>
-</main></div></div><script src="script.js"></script>
-<style>
-.feature-view{margin-top:14px;display:none}
-.feature-view.active-view{display:block}
-.course-count{padding:5px 9px;border-radius:7px;background:#eef0ff;color:#4d45cf;font-size:9px;font-weight:800}
-.course-table-wrap{overflow:auto}
-.course-table{width:100%;min-width:980px;border-collapse:collapse;font-size:10px}
-.course-table th{background:#f5f7fb;color:#66738b;font-size:9px;padding:11px 9px;text-align:center;border-bottom:1px solid #e7ebf1;white-space:nowrap}
-.course-table th:nth-child(3),.course-table td:nth-child(3){text-align:left;min-width:250px}
-.course-table td{padding:11px 9px;border-bottom:1px solid #edf0f4;text-align:center;vertical-align:middle}
-.course-table tr:last-child td{border-bottom:0}
-.course-table tbody tr:hover{background:#fafbff}
-.course-mark{font-weight:800}.course-mark.good{color:#11985a}.course-mark.mid{color:#c57a00}.course-mark.pending{color:#8993a6}
-.performance-cell{min-width:145px}.performance-head{display:flex;justify-content:space-between;gap:8px;font-weight:800}.performance-bar{height:6px;background:#e9edf2;border-radius:8px;margin-top:6px;overflow:hidden}.performance-bar span{display:block;height:100%;background:#26c46b;border-radius:8px}
-.mar-pill{display:inline-flex;padding:5px 8px;border-radius:6px;background:#edf0ff;color:#4b43cc;font-weight:800;font-size:9px}
-.data-note{margin-top:12px;color:#8993a6;font-size:9px}
-.attendance-total-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-.attendance-total-strip>div{padding:12px;border:1px solid #e7ebf1;background:#f7f9fc;border-radius:9px}.attendance-total-strip strong{display:block;font-size:20px}.attendance-total-strip span{font-size:9px;color:#78849a}
-.course-attendance-list{display:grid;gap:8px}
-.course-att-row{display:grid;grid-template-columns:235px 95px 1fr;gap:14px;align-items:center;padding:11px 12px;border:1px solid #edf0f4;border-radius:9px;background:#fff;transition:background .15s,border-color .15s}
-.course-att-row:hover,.course-att-row.is-hovered{background:#f5fff9;border-color:#b7ebce}
-.att-course-name strong{display:block;font-size:10px}.att-course-name small{display:block;color:#8993a6;font-size:8px;margin-top:2px}
-.att-count{text-align:center}.att-count strong{display:block;font-size:11px}.att-count span{display:block;color:#78849a;font-size:8px;margin-top:2px}
-.month-blocks{display:grid;grid-template-columns:repeat(9,minmax(42px,1fr));gap:6px}
-.month-block{padding:7px 3px;border-radius:6px;background:#e8ecf1;text-align:center;border:1px solid transparent}.month-block strong{display:block;font-size:8px}.month-block small{display:block;font-size:7px;color:#778399;margin-top:2px}.month-block.present-low{background:#b7f0cf}.month-block.present-mid{background:#63d994}.month-block.present-high{background:#26c46b;color:#fff}.month-block.present-high small{color:#eafff2}.course-att-row:hover .month-block.present-high,.course-att-row.is-hovered .month-block.present-high{box-shadow:0 0 0 2px #0f8f4b,0 0 0 4px rgba(38,196,107,.14)}
-.routine-note{display:flex;gap:10px;align-items:flex-start;margin-top:15px;padding:11px 12px;border-radius:8px;background:#f7f9fc;color:#68748a}.routine-note i{color:#5146e5;margin-top:2px}.routine-note strong{display:block;font-size:9px;color:#27334d}.routine-note small{display:block;font-size:8px;line-height:1.5;margin-top:2px}
-@media(max-width:900px){.course-att-row{grid-template-columns:1fr;gap:9px}.month-blocks{grid-template-columns:repeat(9,55px);overflow:auto;padding-bottom:3px}.attendance-total-strip{grid-template-columns:1fr 1fr 1fr}}
-.pre-semester{opacity:.72}.inactive-month{min-height:30px;display:flex;align-items:center;justify-content:center;background:#f1f3f6;border-radius:6px;color:#9aa3b2;font-size:8px;text-align:center}.pre-semester-block{background:#edf0f3!important;color:#a5adba!important}.pre-semester-block small{color:#a5adba!important}
+  <style>
+    .dashboard-hero {
+      margin-top: 24px;
+    }
 
-.course-name-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.course-name-card{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid #e7ebf1;border-radius:10px;background:#fff}.course-name-card:hover{background:#fafbff;border-color:#dfe4f1}.course-number{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#eef0ff;color:#5146e5;font-size:9px;font-weight:800}.course-name-card strong{display:block;font-size:11px}.course-name-card small{display:block;color:#8993a6;font-size:8px;margin-top:3px}.course-name-cell{text-align:left!important;font-weight:600;min-width:280px}.marks-exams-table{min-width:760px}
-.timetable-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.timetable-modal.open{display:flex}.timetable-backdrop{position:absolute;inset:0;background:rgba(10,16,34,.62)}.timetable-dialog{position:relative;z-index:1;width:min(520px,100%);background:#fff;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.28);overflow:hidden}.timetable-dialog-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #e6eaf1}.timetable-dialog-head h2{font-size:18px;color:#27334d}.timetable-dialog-head h2 i{color:#ef4444;margin-right:8px}.timetable-close{border:0;background:transparent;color:#6d7890;font-size:25px;cursor:pointer;line-height:1}.timetable-dialog-body{text-align:center;padding:34px 26px 28px}.timetable-pdf-icon{font-size:42px;color:#5146e5;margin-bottom:16px}.timetable-dialog-body h3{font-size:16px;margin-bottom:5px}.timetable-dialog-body p{font-size:12px;color:#5f6b80;line-height:1.6;margin:0 auto 20px;max-width:390px}.timetable-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.timetable-actions .btn{min-height:40px}.modal-open{overflow:hidden}
-@media(max-width:700px){.course-name-grid{grid-template-columns:1fr}.timetable-dialog-head h2{font-size:15px}.timetable-dialog-body{padding:28px 18px 24px}}
+    .hero-student {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
 
-.profile-view{overflow:hidden}.profile-hero{display:flex;align-items:center;gap:18px;padding:6px 2px 20px}.profile-avatar-large{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#4b4bea,#315fe9);color:#fff;font-size:20px;font-weight:800;box-shadow:0 10px 25px rgba(81,70,229,.18)}.profile-identity{flex:1}.profile-eyebrow{display:inline-block;font-size:8px;font-weight:850;letter-spacing:1.2px;color:#5146e5;margin-bottom:4px}.profile-identity h2{font-size:22px;letter-spacing:-.5px}.profile-identity p{font-size:11px;color:#69758c;margin-top:2px}.profile-code{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 8px;border-radius:6px;background:#eef0ff;color:#5146e5;font-size:8px;font-weight:700}.profile-status{display:flex;align-items:center;gap:6px;padding:7px 10px;border:1px solid #ccefdc;background:#f1fcf5;border-radius:8px;color:#12985a;font-size:9px;font-weight:800;align-self:flex-start}.profile-status span{width:7px;height:7px;border-radius:50%;background:#20c878}.profile-divider{height:1px;background:#e8ecf2;margin:0 0 20px}.profile-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.profile-info-card{min-height:76px;padding:14px 16px;border:1px solid #e4e9f1;border-radius:11px;background:linear-gradient(145deg,#fbfcfe,#f6f8fb)}.profile-info-card span{display:block;font-size:8px;color:#66738b;font-weight:650;margin-bottom:8px}.profile-info-card strong{display:block;font-size:12px;color:#14203a;line-height:1.35}.profile-info-card em{font-style:normal;color:#20a866;font-size:10px}.profile-note{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:11px 13px;border-radius:9px;background:#f5f7ff;border:1px solid #e4e7fb;color:#69758c}.profile-note i{color:#5146e5;margin-top:2px}.profile-note strong{display:block;font-size:9px;color:#27334d}.profile-note small{display:block;font-size:8px;line-height:1.5;margin-top:2px}@media(max-width:700px){.profile-hero{align-items:flex-start;flex-wrap:wrap}.profile-status{margin-left:84px;margin-top:-8px}.profile-info-grid{grid-template-columns:1fr}}
-.records-table-wrap{overflow-x:auto;margin-top:6px}.records-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #e7ebf3;border-radius:14px;overflow:hidden;background:#fff}.records-table th{padding:14px 16px;text-align:left;font-size:12px;color:#64748b;background:#f6f8fc;border-bottom:1px solid #e7ebf3;text-transform:uppercase;letter-spacing:.04em}.records-table td{padding:15px 16px;border-bottom:1px solid #edf0f5;font-size:14px;color:#172033}.records-table tbody tr:hover{background:#f8fbff}.record-activity{display:flex;align-items:center;gap:11px}.record-icon{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;background:#eef2ff;color:#4f46e5}.mar-pill{display:inline-flex;min-width:34px;height:28px;padding:0 9px;align-items:center;justify-content:center;border-radius:8px;background:#ecfdf3;color:#138a4b;font-weight:800}.records-table tfoot td{padding:16px;background:#f8fafc;border-bottom:0}.mar-total{display:inline-flex;min-width:42px;height:30px;padding:0 10px;align-items:center;justify-content:center;border-radius:8px;background:#4f46e5;color:#fff;font-weight:800}.records-view{scroll-margin-top:24px}</style>
+    .hero-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      flex-shrink: 0;
+    }
 
+    .student-active-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
 
-<div class="timetable-modal" id="timetableModal" aria-hidden="true">
-  <div class="timetable-backdrop" data-timetable-close></div>
-  <div class="timetable-dialog" role="dialog" aria-modal="true" aria-labelledby="timetableTitle">
-    <div class="timetable-dialog-head">
-      <h2 id="timetableTitle"><i class="fa-solid fa-file-pdf"></i> Semester Routine Timetable (PDF)</h2>
-      <button class="timetable-close" type="button" data-timetable-close aria-label="Close">×</button>
-    </div>
-    <div class="timetable-dialog-body">
-      <i class="fa-solid fa-file-lines timetable-pdf-icon"></i>
-      <h3>B.Tech CSE Cybersecurity — Official Timetable</h3>
-      <p>Semester 3 • Section B • Department of Computer Science &amp; Engineering</p>
-      <div class="timetable-actions">
-        <a class="btn btn-primary" href="semester-routine-timetable.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download Timetable PDF</a>
-        <button class="btn btn-outline" type="button" data-timetable-open-pdf>Open PDF</button>
-        <button class="btn btn-outline" type="button" data-timetable-close>Close</button>
+    .student-active-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .student-active-badge.inactive span {
+      background: #ef4444;
+    }
+
+    .student-loading {
+      opacity: 0.65;
+    }
+
+    .feature-view {
+      display: none;
+    }
+
+    .feature-view.active {
+      display: block;
+    }
+
+    .course-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .course-table th,
+    .course-table td {
+      padding: 13px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .course-table th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .attendance-progress {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .attendance-progress span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: #2563eb;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .profile-item {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(148, 163, 184, 0.08);
+    }
+
+    .profile-item small {
+      display: block;
+      margin-bottom: 5px;
+      opacity: 0.65;
+    }
+
+    .profile-item strong {
+      display: block;
+      word-break: break-word;
+    }
+
+    .records-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .record-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(148, 163, 184, 0.08);
+    }
+
+    .record-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.1);
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.65);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      width: min(900px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      border-radius: 20px;
+      background: white;
+      padding: 24px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .modal-close {
+      border: 0;
+      background: transparent;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .timetable-placeholder {
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      background: #f8fafc;
+    }
+
+    @media (max-width: 768px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-student {
+        align-items: flex-start;
+      }
+
+      .hero-avatar {
+        width: 58px;
+        height: 58px;
+      }
+
+      .course-table {
+        min-width: 700px;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================== -->
+
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a class="brand" href="index.html">
+        <span class="logo">
+          <i class="fa-solid fa-building-columns"></i>
+        </span>
+
+        <span>
+          <strong>BWU</strong>
+          <small>Student Portal</small>
+        </span>
+      </a>
+
+      <div class="user-chip">
+
+        <div
+          class="avatar"
+          id="navStudentAvatar"
+        >
+          --
+        </div>
+
+        <div>
+          <strong
+            id="navStudentName"
+            class="student-loading"
+          >
+            Loading...
+          </strong>
+
+          <small id="navStudentMeta">
+            Student
+          </small>
+        </div>
+
       </div>
+
     </div>
+  </header>
+
+
+  <!-- =========================================================
+       MAIN DASHBOARD
+  ========================================================== -->
+
+  <main class="container dashboard-page">
+
+    <!-- HERO -->
+
+    <section class="dashboard-hero">
+
+      <div class="hero-student">
+
+        <div
+          class="hero-avatar"
+          id="heroStudentAvatar"
+        >
+          --
+        </div>
+
+        <div>
+
+          <h1 id="studentName">
+            Loading student...
+          </h1>
+
+          <p id="studentProgramLine">
+            Loading academic profile...
+          </p>
+
+          <div
+            class="student-active-badge"
+            id="studentStatusBadge"
+          >
+            <span></span>
+            <strong>Checking account...</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-meta">
+
+        <div>
+          <small>Student ID</small>
+          <strong id="studentId">Loading...</strong>
+        </div>
+
+        <div>
+          <small>Department</small>
+          <strong id="studentDepartment">Loading...</strong>
+        </div>
+
+        <div>
+          <small>Semester</small>
+          <strong id="studentSemester">Loading...</strong>
+        </div>
+
+        <div>
+          <small>Section</small>
+          <strong id="studentSection">Loading...</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SIDEBAR + CONTENT
+    ======================================================== -->
+
+    <div class="dashboard-layout">
+
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar">
+
+        <nav>
+
+          <a
+            href="#"
+            class="sidebar-link active"
+            data-view="dashboard"
+          >
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="profile"
+          >
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="courses"
+          >
+            <i class="fa-solid fa-book"></i>
+            <span>Courses</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="attendance"
+          >
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Attendance</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="timetable"
+          >
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Timetable</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="marks"
+          >
+            <i class="fa-solid fa-file-lines"></i>
+            <span>Marks & Exams</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="results"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Results</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            data-view="records"
+          >
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Records</span>
+          </a>
+
+          <a
+            href="#"
+            class="sidebar-link"
+            id="studentLogout"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+
+        </nav>
+
+      </aside>
+
+
+      <!-- CONTENT -->
+
+      <section class="dashboard-content">
+
+
+        <!-- ===================================================
+             DASHBOARD VIEW
+        ==================================================== -->
+
+        <div
+          class="feature-view active"
+          id="view-dashboard"
+        >
+
+          <div class="section-heading">
+
+            <div>
+              <h2>Academic Overview</h2>
+              <p>
+                Your current academic performance and attendance.
+              </p>
+            </div>
+
+          </div>
+
+
+          <!-- KPI CARDS -->
+
+          <div class="kpi-grid">
+
+            <div class="kpi-card">
+              <small>CGPA</small>
+              <strong>8.1</strong>
+              <span>Overall</span>
+            </div>
+
+            <div class="kpi-card">
+              <small>SGPA</small>
+              <strong>—</strong>
+              <span>Current semester</span>
+            </div>
+
+            <div class="kpi-card">
+              <small>Attendance</small>
+              <strong>92.2%</strong>
+              <span>Overall</span>
+            </div>
+
+            <div class="kpi-card">
+              <small>Credits</small>
+              <strong>22</strong>
+              <span>Completed</span>
+            </div>
+
+          </div>
+
+
+          <!-- OVERVIEW -->
+
+          <div class="dashboard-card">
+
+            <div class="card-heading">
+              <div>
+                <h3>Academic Performance</h3>
+                <p>
+                  Current academic summary
+                </p>
+              </div>
+            </div>
+
+            <div class="overview-grid">
+
+              <div class="overview-item">
+
+                <div class="overview-value">
+                  92.2%
+                </div>
+
+                <small>Attendance</small>
+
+                <div class="attendance-progress">
+                  <span style="width:92.2%"></span>
+                </div>
+
+                <p>
+                  688 / 746 classes
+                </p>
+
+              </div>
+
+
+              <div class="overview-item">
+
+                <div class="overview-value">
+                  8.1
+                </div>
+
+                <small>CGPA</small>
+
+                <p>
+                  Overall performance
+                </p>
+
+              </div>
+
+
+              <div class="overview-item">
+
+                <div class="overview-value">
+                  8.1
+                </div>
+
+                <small>Semester I</small>
+
+                <p>
+                  SGPA
+                </p>
+
+              </div>
+
+
+              <div class="overview-item">
+
+                <div class="overview-value">
+                  6.9
+                </div>
+
+                <small>Semester II</small>
+
+                <p>
+                  SGPA
+                </p>
+
+              </div>
+
+
+              <div class="overview-item">
+
+                <div class="overview-value">
+                  55
+                </div>
+
+                <small>MAR Points</small>
+
+                <p>
+                  Current record
+                </p>
+
+              </div>
+
+
+              <div class="overview-item">
+
+                <div class="overview-value">
+                  III
+                </div>
+
+                <small>Current Term</small>
+
+                <p id="overviewSemester">
+                  Semester III
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ATTENDANCE HEATMAP -->
+
+          <div class="dashboard-card">
+
+            <div class="card-heading">
+
+              <div>
+                <h3>Attendance Activity</h3>
+                <p>
+                  Monthly attendance overview
+                </p>
+              </div>
+
+            </div>
+
+            <div class="attendance-heatmap">
+
+              <div class="heatmap-row">
+
+                <span>Jan</span>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+
+              </div>
+
+              <div class="heatmap-row">
+
+                <span>Feb</span>
+                <i class="heat high"></i>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+
+              </div>
+
+              <div class="heatmap-row">
+
+                <span>Mar</span>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat medium"></i>
+
+              </div>
+
+              <div class="heatmap-row">
+
+                <span>Apr</span>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+
+              </div>
+
+              <div class="heatmap-row">
+
+                <span>May</span>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- SGPA -->
+
+          <div class="dashboard-card">
+
+            <div class="card-heading">
+
+              <div>
+                <h3>Semester Performance</h3>
+                <p>
+                  SGPA progression
+                </p>
+              </div>
+
+            </div>
+
+            <div class="semester-chart">
+
+              <div class="semester-item">
+
+                <span>Semester I</span>
+
+                <div class="semester-bar">
+                  <span style="width:81%"></span>
+                </div>
+
+                <strong>8.1</strong>
+
+              </div>
+
+
+              <div class="semester-item">
+
+                <span>Semester II</span>
+
+                <div class="semester-bar">
+                  <span style="width:69%"></span>
+                </div>
+
+                <strong>6.9</strong>
+
+              </div>
+
+
+              <div class="semester-item">
+
+                <span id="semesterThreeLabel">
+                  Semester III
+                </span>
+
+                <div class="semester-bar">
+                  <span style="width:0%"></span>
+                </div>
+
+                <strong>—</strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             PROFILE
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-profile"
+        >
+
+          <div class="section-heading">
+
+            <div>
+              <h2>Student Profile</h2>
+              <p>
+                Your registered academic identity.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="profile-header">
+
+              <div
+                class="hero-avatar"
+                id="profileAvatar"
+              >
+                --
+              </div>
+
+              <div>
+
+                <h2 id="profileName">
+                  Loading...
+                </h2>
+
+                <p id="profileProgram">
+                  Loading...
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="profile-grid">
+
+              <div class="profile-item">
+
+                <small>Student Code</small>
+
+                <strong id="profileStudentId">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Email</small>
+
+                <strong id="profileEmail">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Department</small>
+
+                <strong id="profileDepartment">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Program</small>
+
+                <strong id="profileProgramValue">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Semester</small>
+
+                <strong id="profileSemester">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Section</small>
+
+                <strong id="profileSection">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Batch</small>
+
+                <strong id="profileBatch">
+                  Loading...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Account Status</small>
+
+                <strong id="profileStatus">
+                  Checking...
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>CGPA</small>
+
+                <strong>
+                  8.10
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Total Classes</small>
+
+                <strong>
+                  688 / 746
+                </strong>
+
+              </div>
+
+
+              <div class="profile-item">
+
+                <small>Active Subjects</small>
+
+                <strong id="profileCourseCount">
+                  10
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="profile-note">
+
+              <i class="fa-solid fa-circle-info"></i>
+
+              <span>
+                Your identity and account status are loaded from
+                your Firebase academic profile.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             COURSES
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-courses"
+        >
+
+          <div class="section-heading">
+
+            <div>
+              <h2>My Courses</h2>
+              <p>
+                Courses registered for the current semester.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="table-wrapper">
+
+              <table class="course-table">
+
+                <thead>
+
+                  <tr>
+                    <th>Code</th>
+                    <th>Course</th>
+                    <th>CT-01</th>
+                    <th>Status</th>
+                  </tr>
+
+                </thead>
+
+                <tbody id="courseNameList"></tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             ATTENDANCE
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-attendance"
+        >
+
+          <div class="section-heading">
+
+            <div>
+              <h2>Attendance</h2>
+              <p>
+                Course-wise attendance overview.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div
+              id="courseAttendanceList"
+              class="attendance-course-list"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             TIMETABLE
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-timetable"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <h2>Class Timetable</h2>
+
+              <p id="timetableStudentInfo">
+                Loading student information...
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="openTimetable()"
+            >
+              <i class="fa-solid fa-file-pdf"></i>
+              View Timetable
+            </button>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="timetable-placeholder">
+
+              <i
+                class="fa-solid fa-calendar-days"
+                style="font-size:42px;margin-bottom:16px"
+              ></i>
+
+              <h3>
+                Semester Timetable
+              </h3>
+
+              <p id="timetableDescription">
+                Your official semester timetable is available here.
+              </p>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="openTimetable()"
+              >
+                Open Timetable
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             MARKS
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-marks"
+        >
+
+          <div class="section-heading">
+
+            <div>
+              <h2>Marks & Examinations</h2>
+              <p>
+                Internal assessment and examination records.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="table-wrapper">
+
+              <table class="course-table">
+
+                <thead>
+
+                  <tr>
+                    <th>Course Code</th>
+                    <th>Course</th>
+                    <th>CT-01</th>
+                    <th>Maximum</th>
+                    <th>Status</th>
+                  </tr>
+
+                </thead>
+
+                <tbody id="marksRows"></tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             RESULTS
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-results"
+        >
+
+          <div class="section-heading">
+
+            <div>
+              <h2>Academic Results</h2>
+              <p>
+                Semester-wise academic performance.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="result-grid">
+
+              <div class="result-card">
+
+                <small>Semester I</small>
+
+                <strong>8.10</strong>
+
+                <span>SGPA</span>
+
+              </div>
+
+
+              <div class="result-card">
+
+                <small>Semester II</small>
+
+                <strong>6.90</strong>
+
+                <span>SGPA</span>
+
+              </div>
+
+
+              <div class="result-card">
+
+                <small>Current CGPA</small>
+
+                <strong>8.10</strong>
+
+                <span>Overall</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="card-heading">
+
+              <div>
+                <h3>Marks Record</h3>
+                <p>
+                  Previous semester performance
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+              <table class="course-table">
+
+                <thead>
+
+                  <tr>
+                    <th>Semester</th>
+                    <th>SGPA</th>
+                    <th>Result</th>
+                  </tr>
+
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>Semester I</td>
+                    <td>8.10</td>
+                    <td>Passed</td>
+                  </tr>
+
+                  <tr>
+                    <td>Semester II</td>
+                    <td>6.90</td>
+                    <td>Passed</td>
+                  </tr>
+
+                  <tr>
+                    <td>Semester III</td>
+                    <td>—</td>
+                    <td>In Progress</td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             RECORDS
+        ==================================================== -->
+
+        <div
+          class="feature-view"
+          id="view-records"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <h2>Academic Records</h2>
+
+              <p>
+                Academic activity and achievement records.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="records-list">
+
+              <div class="record-item">
+
+                <div class="record-icon">
+                  <i class="fa-solid fa-user-check"></i>
+                </div>
+
+                <div>
+                  <strong>Student Account Created</strong>
+                  <p>
+                    Academic profile successfully registered.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="record-item">
+
+                <div class="record-icon">
+                  <i class="fa-solid fa-book"></i>
+                </div>
+
+                <div>
+                  <strong>Course Registration</strong>
+                  <p>
+                    Current semester courses registered.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="record-item">
+
+                <div class="record-icon">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <div>
+                  <strong>Attendance Tracking</strong>
+                  <p>
+                    Attendance records are available through the portal.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="record-item">
+
+                <div class="record-icon">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+
+                <div>
+                  <strong>MAR Points</strong>
+                  <p>
+                    Current record: 55 points.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================================================
+       TIMETABLE MODAL
+  ========================================================== -->
+
+  <div
+    class="modal"
+    id="timetableModal"
+  >
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <div>
+
+          <h2>
+            Semester Timetable
+          </h2>
+
+          <p id="modalStudentInfo">
+            Loading...
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          onclick="closeTimetable()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+
+      <div class="timetable-placeholder">
+
+        <i
+          class="fa-solid fa-calendar-days"
+          style="font-size:48px;margin-bottom:18px"
+        ></i>
+
+        <h3>
+          Official Semester Routine
+        </h3>
+
+        <p>
+          Your timetable PDF can be opened from the button below.
+        </p>
+
+        <a
+          href="semester-routine-timetable.pdf"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary"
+        >
+          <i class="fa-solid fa-file-pdf"></i>
+          Open PDF
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
-</div>
-<section class="panel feature-view records-view" id="records-view">
-  <div class="panel-head"><div><h3>Records</h3><span>Academic activities &amp; MAR points</span></div><span class="course-count">4 Activities</span></div>
-  <div class="records-table-wrap">
-    <table class="records-table">
-      <thead><tr><th>Sl. No.</th><th>Activity</th><th>MAR Pts</th></tr></thead>
-      <tbody>
-        <tr><td>01</td><td><div class="record-activity"><span class="record-icon"><i class="fa-solid fa-clipboard-check"></i></span><strong>VDYL Quiz</strong></div></td><td><span class="mar-pill">10</span></td></tr>
-        <tr><td>02</td><td><div class="record-activity"><span class="record-icon"><i class="fa-solid fa-microphone-lines"></i></span><strong>TEXIBITION</strong></div></td><td><span class="mar-pill">10</span></td></tr>
-        <tr><td>03</td><td><div class="record-activity"><span class="record-icon"><i class="fa-solid fa-flag"></i></span><strong>BRAINCON CTF</strong></div></td><td><span class="mar-pill">15</span></td></tr>
-        <tr><td>04</td><td><div class="record-activity"><span class="record-icon"><i class="fa-solid fa-shield-halved"></i></span><strong>NULL ORIGIN CTF</strong></div></td><td><span class="mar-pill">20</span></td></tr>
-      </tbody>
-      <tfoot><tr><td colspan="2"><strong>Total MAR Points</strong></td><td><span class="mar-total">55</span></td></tr></tfoot>
-    </table>
-  </div>
-</section>
 
-<script>
-const courseData = [
- {code:'BBS00008',name:'Discrete Mathematics',ct1:14,att:[0,0,0,0,0,25,24,27,23]},
- {code:'BTY30101',name:'Computer Organization and Architecture',ct1:15,att:[0,0,0,0,0,24,23,26,22]},
- {code:'BTY30102',name:'Database Management System',ct1:17,att:[0,0,0,0,0,28,27,29,25]},
- {code:'BES00023',name:'Applied Data Structure and Algorithm',ct1:16,att:[0,0,0,0,0,25,24,26,23]},
- {code:'BTY39104',name:'Computer Organization and Architecture Lab',ct1:18,att:[0,0,0,0,0,14,13,15,13]},
- {code:'BTY39105',name:'Database Management System Lab',ct1:17,att:[0,0,0,0,0,15,14,16,14]},
- {code:'BES09024',name:'Applied Data Structure and Algorithm Lab',ct1:16,att:[0,0,0,0,0,13,12,14,12]},
- {code:'BES09021',name:'Python for Engineering Essentials Lab',ct1:18,att:[0,0,0,0,0,12,11,13,12]},
- {code:'BTY38101',name:'Mini Project-I',ct1:17,att:[0,0,0,0,0,10,10,11,10]},
- {code:'BAU00001',name:'Constitution of India*',ct1:16,att:[0,0,0,0,0,8,8,9,8]}
-];
-const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
-const semesterStartIndex=5;
 
-const courseNames=document.getElementById('courseNameList');
-if(courseNames){courseNames.innerHTML=courseData.map((c,i)=>`<div class="course-name-card"><span class="course-number">${String(i+1).padStart(2,'0')}</span><div><strong>${c.name}</strong></div></div>`).join('');}
+  <!-- Existing site script -->
 
-const marksRows=document.getElementById('marksRows');
-if(marksRows){marksRows.innerHTML=courseData.map((c,i)=>`<tr><td>${i+1}.</td><td class="course-name-cell">${c.name}</td><td><span class="course-mark good">${c.ct1}</span></td><td><span class="course-mark pending">—</span></td><td><span class="course-mark pending">—</span></td></tr>`).join('');}
+  <script src="script.js"></script>
 
-const list=document.getElementById('courseAttendanceList');
-if(list){list.innerHTML=courseData.map(c=>{const total=c.att.slice(semesterStartIndex).reduce((a,b)=>a+b,0);const classes=Math.round(total/0.922);const pct=(total/classes*100).toFixed(1);return `<div class="course-att-row" data-course="${c.code}"><div class="att-course-name"><strong>${c.name}</strong><small>${c.code}</small></div><div class="att-count"><strong>${total}/${classes}</strong><span>${pct}% attendance</span></div><div class="month-blocks">${c.att.map((v,i)=>{const active=i>=semesterStartIndex; const ratio=active ? v/Math.max(v,Math.ceil(v/0.94)) : 0; const cls=!active?'pre-semester-block':ratio>=.9?'present-high':ratio>=.75?'present-mid':'present-low'; const label=active?`${v} P`:'—'; const title=active?`${c.name} • ${months[i]} • ${v} classes present`:`${c.name} • ${months[i]} • Semester III not started`; return `<div class="month-block ${cls}" title="${title}"><strong>${months[i]}</strong><small>${label}</small></div>`}).join('')}</div></div>`}).join('');}
 
-const totals=courseData.reduce((a,c)=>a+c.att.slice(semesterStartIndex).reduce((x,y)=>x+y,0),0);
-const totalClasses=Math.round(totals/.922);
-const at=document.getElementById('attendedTotal'), ct=document.getElementById('classTotal'), ao=document.getElementById('attendanceOverall');
-if(at){at.textContent=totals;ct.textContent=totalClasses;ao.textContent=(totals/totalClasses*100).toFixed(1)+'%';}
+  <!-- =========================================================
+       COURSE / ATTENDANCE / MARKS DATA
+       These remain your current dashboard demo records.
+  ========================================================== -->
 
-function showView(view){document.querySelectorAll('.feature-view').forEach(x=>x.classList.remove('active-view'));document.querySelectorAll('[data-view]').forEach(x=>x.classList.remove('active'));const el=document.getElementById(view+'-view');if(el)el.classList.add('active-view');const link=document.querySelector('[data-view="'+view+'"]');if(link)link.classList.add('active');}
-document.querySelectorAll('[data-view]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showView(a.dataset.view);document.getElementById(a.dataset.view+'-view')?.scrollIntoView({behavior:'smooth',block:'start'});}));
-document.querySelectorAll('.course-att-row').forEach(row=>row.addEventListener('mouseenter',()=>row.classList.add('is-hovered')));
-document.querySelectorAll('.course-att-row').forEach(row=>row.addEventListener('mouseleave',()=>row.classList.remove('is-hovered')));
+  <script>
 
-const timetableModal=document.getElementById('timetableModal');
-function openTimetable(){timetableModal?.classList.add('open');timetableModal?.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}
-function closeTimetable(){timetableModal?.classList.remove('open');timetableModal?.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
-document.querySelectorAll('[data-timetable-open]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openTimetable();}));
-document.querySelectorAll('[data-timetable-close]').forEach(a=>a.addEventListener('click',closeTimetable));
-document.querySelector('[data-timetable-open-pdf]')?.addEventListener('click',()=>window.open('semester-routine-timetable.pdf','_blank','noopener'));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTimetable();});
-</script>
-<script src="/bwu-config.js"></script><script src="/bwu-addons.js" defer></script></body></html>
+    const courseData = [
+
+      {
+        code: "BBS00008",
+        name: "Discrete Mathematics",
+        ct1: 14,
+        att: [0, 0, 0, 0, 0, 25, 24, 27, 23]
+      },
+
+      {
+        code: "BTY30101",
+        name: "Computer Organization and Architecture",
+        ct1: 15,
+        att: [0, 0, 0, 0, 0, 24, 23, 26, 22]
+      },
+
+      {
+        code: "BTY30102",
+        name: "Database Management System",
+        ct1: 17,
+        att: [0, 0, 0, 0, 0, 28, 27, 29, 25]
+      },
+
+      {
+        code: "BES00023",
+        name: "Applied Data Structure and Algorithm",
+        ct1: 16,
+        att: [0, 0, 0, 0, 0, 25, 24, 26, 23]
+      },
+
+      {
+        code: "BTY39104",
+        name: "Computer Organization and Architecture Lab",
+        ct1: 18,
+        att: [0, 0, 0, 0, 0, 14, 13, 15, 13]
+      },
+
+      {
+        code: "BTY39105",
+        name: "Database Management System Lab",
+        ct1: 17,
+        att: [0, 0, 0, 0, 0, 15, 14, 16, 14]
+      },
+
+      {
+        code: "BES09024",
+        name: "Applied Data Structure and Algorithm Lab",
+        ct1: 16,
+        att: [0, 0, 0, 0, 0, 13, 12, 14, 12]
+      },
+
+      {
+        code: "BES09021",
+        name: "Python for Engineering Essentials Lab",
+        ct1: 18,
+        att: [0, 0, 0, 0, 0, 12, 11, 13, 12]
+      },
+
+      {
+        code: "BTY38101",
+        name: "Mini Project-I",
+        ct1: 17,
+        att: [0, 0, 0, 0, 0, 10, 10, 11, 10]
+      },
+
+      {
+        code: "BAU00001",
+        name: "Constitution of India*",
+        ct1: 16,
+        att: [0, 0, 0, 0, 0, 8, 8, 9, 8]
+      }
+
+    ];
+
+
+    const semesterStartIndex = 5;
+
+
+    /* COURSE TABLE */
+
+    const courseNames =
+      document.getElementById("courseNameList");
+
+    if (courseNames) {
+
+      courseNames.innerHTML = courseData.map((course) => {
+
+        return `
+          <tr>
+
+            <td>
+              <strong>${course.code}</strong>
+            </td>
+
+            <td>
+              ${course.name}
+            </td>
+
+            <td>
+              ${course.ct1}/20
+            </td>
+
+            <td>
+              <span class="status-badge success">
+                Active
+              </span>
+            </td>
+
+          </tr>
+        `;
+
+      }).join("");
+
+    }
+
+
+    /* MARKS TABLE */
+
+    const marksRows =
+      document.getElementById("marksRows");
+
+    if (marksRows) {
+
+      marksRows.innerHTML = courseData.map((course) => {
+
+        return `
+          <tr>
+
+            <td>
+              ${course.code}
+            </td>
+
+            <td>
+              ${course.name}
+            </td>
+
+            <td>
+              ${course.ct1}
+            </td>
+
+            <td>
+              20
+            </td>
+
+            <td>
+              <span class="status-badge success">
+                Available
+              </span>
+            </td>
+
+          </tr>
+        `;
+
+      }).join("");
+
+    }
+
+
+    /* ATTENDANCE */
+
+    const attendanceList =
+      document.getElementById("courseAttendanceList");
+
+    if (attendanceList) {
+
+      attendanceList.innerHTML = courseData.map((course) => {
+
+        const total =
+          course.att
+            .slice(semesterStartIndex)
+            .reduce(
+              (a, b) => a + b,
+              0
+            );
+
+        const classes =
+          Math.round(total / 0.922);
+
+        const percentage =
+          classes > 0
+            ? ((total / classes) * 100).toFixed(1)
+            : "0.0";
+
+        return `
+          <div class="attendance-course-item">
+
+            <div class="attendance-course-header">
+
+              <div>
+
+                <strong>
+                  ${course.name}
+                </strong>
+
+                <small>
+                  ${course.code}
+                </small>
+
+              </div>
+
+              <strong>
+                ${percentage}%
+              </strong>
+
+            </div>
+
+            <div class="attendance-progress">
+
+              <span
+                style="width:${percentage}%"
+              ></span>
+
+            </div>
+
+            <small>
+              ${total} / ${classes} classes attended
+            </small>
+
+          </div>
+        `;
+
+      }).join("");
+
+    }
+
+
+    /* COURSE COUNT */
+
+    const profileCourseCount =
+      document.getElementById("profileCourseCount");
+
+    if (profileCourseCount) {
+      profileCourseCount.textContent =
+        String(courseData.length);
+    }
+
+
+    /* VIEW SWITCHING */
+
+    function showView(view) {
+
+      document
+        .querySelectorAll(".feature-view")
+        .forEach((element) => {
+
+          element.classList.remove("active");
+
+        });
+
+
+      const selectedView =
+        document.getElementById(
+          `view-${view}`
+        );
+
+      if (selectedView) {
+        selectedView.classList.add("active");
+      }
+
+
+      document
+        .querySelectorAll(".sidebar-link")
+        .forEach((link) => {
+
+          link.classList.remove("active");
+
+        });
+
+
+      const activeLink =
+        document.querySelector(
+          `.sidebar-link[data-view="${view}"]`
+        );
+
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+
+    }
+
+
+    document
+      .querySelectorAll(".sidebar-link[data-view]")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          (event) => {
+
+            event.preventDefault();
+
+            const view =
+              link.getAttribute("data-view");
+
+            if (view) {
+              showView(view);
+            }
+
+          }
+        );
+
+      });
+
+
+    /* TIMETABLE */
+
+    const timetableModal =
+      document.getElementById(
+        "timetableModal"
+      );
+
+
+    function openTimetable() {
+
+      if (timetableModal) {
+        timetableModal.classList.add("show");
+      }
+
+    }
+
+
+    function closeTimetable() {
+
+      if (timetableModal) {
+        timetableModal.classList.remove("show");
+      }
+
+    }
+
+
+    window.openTimetable =
+      openTimetable;
+
+    window.closeTimetable =
+      closeTimetable;
+
+
+    if (timetableModal) {
+
+      timetableModal.addEventListener(
+        "click",
+        (event) => {
+
+          if (
+            event.target === timetableModal
+          ) {
+            closeTimetable();
+          }
+
+        }
+      );
+
+    }
+
+  </script>
+
+
+  <!-- =========================================================
+       FIREBASE STUDENT PROFILE
+  ========================================================== -->
+
+  <script type="module">
+
+    import {
+      auth,
+      db,
+      signOut,
+      doc,
+      getDoc
+    } from "/src/lib/firebase.ts";
+
+
+    /*
+      Convert a name into initials.
+    */
+
+    function getInitials(name) {
+
+      if (!name) {
+        return "--";
+      }
+
+      const words =
+        String(name)
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean);
+
+      if (words.length === 1) {
+        return words[0]
+          .slice(0, 2)
+          .toUpperCase();
+      }
+
+      return (
+        words[0][0] +
+        words[words.length - 1][0]
+      ).toUpperCase();
+
+    }
+
+
+    /*
+      Safely convert Firebase values into strings.
+    */
+
+    function valueOrFallback(
+      value,
+      fallback = "Not available"
+    ) {
+
+      if (
+        value === undefined ||
+        value === null ||
+        String(value).trim() === ""
+      ) {
+        return fallback;
+      }
+
+      return String(value);
+
+    }
+
+
+    /*
+      Find a profile field from multiple possible
+      field names so it works with your existing
+      student-management structure.
+    */
+
+    function firstValue(
+      profile,
+      fields,
+      fallback
+    ) {
+
+      for (const field of fields) {
+
+        if (
+          profile[field] !== undefined &&
+          profile[field] !== null &&
+          String(profile[field]).trim() !== ""
+        ) {
+
+          return profile[field];
+
+        }
+
+      }
+
+      return fallback;
+
+    }
+
+
+    /*
+      Update all student identity elements.
+    */
+
+    function renderStudentProfile(
+      user,
+      profile
+    ) {
+
+      const name =
+        firstValue(
+          profile,
+          [
+            "displayName",
+            "name",
+            "fullName"
+          ],
+          user.displayName ||
+          user.email ||
+          "Student"
+        );
+
+
+      const email =
+        firstValue(
+          profile,
+          ["email"],
+          user.email || "Email not available"
+        );
+
+
+      const studentId =
+        firstValue(
+          profile,
+          [
+            "studentId",
+            "studentCode",
+            "rollNo",
+            "rollNumber"
+          ],
+          "Student ID not available"
+        );
+
+
+      const department =
+        firstValue(
+          profile,
+          [
+            "department",
+            "departmentName"
+          ],
+          "Department not available"
+        );
+
+
+      const program =
+        firstValue(
+          profile,
+          [
+            "program",
+            "programName",
+            "course",
+            "degree"
+          ],
+          "Program not available"
+        );
+
+
+      const semesterValue =
+        firstValue(
+          profile,
+          [
+            "semester",
+            "semesterNumber"
+          ],
+          null
+        );
+
+
+      const semester =
+        semesterValue !== null
+          ? `Semester ${semesterValue}`
+          : "Semester not available";
+
+
+      const section =
+        firstValue(
+          profile,
+          ["section"],
+          "Section not available"
+        );
+
+
+      const batch =
+        firstValue(
+          profile,
+          [
+            "batch",
+            "academicBatch"
+          ],
+          "Batch not available"
+        );
+
+
+      const academicYear =
+        firstValue(
+          profile,
+          [
+            "academicYear",
+            "academicYearLabel"
+          ],
+          "Academic Year"
+        );
+
+
+      const isActive =
+        profile.isActive !== false;
+
+
+      const initials =
+        getInitials(name);
+
+
+      /* NAVBAR */
+
+      const navName =
+        document.getElementById(
+          "navStudentName"
+        );
+
+      if (navName) {
+        navName.textContent = name;
+        navName.classList.remove(
+          "student-loading"
+        );
+      }
+
+
+      const navMeta =
+        document.getElementById(
+          "navStudentMeta"
+        );
+
+      if (navMeta) {
+
+        navMeta.textContent =
+          `${semester} • ${department}`;
+
+      }
+
+
+      const navAvatar =
+        document.getElementById(
+          "navStudentAvatar"
+        );
+
+      if (navAvatar) {
+        navAvatar.textContent = initials;
+      }
+
+
+      /* HERO */
+
+      const heroName =
+        document.getElementById(
+          "studentName"
+        );
+
+      if (heroName) {
+        heroName.textContent = name;
+      }
+
+
+      const heroAvatar =
+        document.getElementById(
+          "heroStudentAvatar"
+        );
+
+      if (heroAvatar) {
+        heroAvatar.textContent = initials;
+      }
+
+
+      const programLine =
+        document.getElementById(
+          "studentProgramLine"
+        );
+
+      if (programLine) {
+
+        programLine.textContent =
+          `${program} • ${semester}`;
+
+      }
+
+
+      const statusBadge =
+        document.getElementById(
+          "studentStatusBadge"
+        );
+
+      if (statusBadge) {
+
+        statusBadge.classList.toggle(
+          "inactive",
+          !isActive
+        );
+
+        statusBadge.innerHTML = `
+          <span></span>
+          <strong>
+            ${isActive ? "Active Student" : "Inactive Student"}
+          </strong>
+        `;
+
+      }
+
+
+      const studentIdElement =
+        document.getElementById(
+          "studentId"
+        );
+
+      if (studentIdElement) {
+        studentIdElement.textContent =
+          studentId;
+      }
+
+
+      const departmentElement =
+        document.getElementById(
+          "studentDepartment"
+        );
+
+      if (departmentElement) {
+        departmentElement.textContent =
+          department;
+      }
+
+
+      const semesterElement =
+        document.getElementById(
+          "studentSemester"
+        );
+
+      if (semesterElement) {
+        semesterElement.textContent =
+          semester;
+      }
+
+
+      const sectionElement =
+        document.getElementById(
+          "studentSection"
+        );
+
+      if (sectionElement) {
+        sectionElement.textContent =
+          section;
+      }
+
+
+      /* PROFILE */
+
+      const profileAvatar =
+        document.getElementById(
+          "profileAvatar"
+        );
+
+      if (profileAvatar) {
+        profileAvatar.textContent =
+          initials;
+      }
+
+
+      const profileName =
+        document.getElementById(
+          "profileName"
+        );
+
+      if (profileName) {
+        profileName.textContent =
+          name;
+      }
+
+
+      const profileProgram =
+        document.getElementById(
+          "profileProgram"
+        );
+
+      if (profileProgram) {
+
+        profileProgram.textContent =
+          program;
+
+      }
+
+
+      const profileStudentId =
+        document.getElementById(
+          "profileStudentId"
+        );
+
+      if (profileStudentId) {
+        profileStudentId.textContent =
+          studentId;
+      }
+
+
+      const profileEmail =
+        document.getElementById(
+          "profileEmail"
+        );
+
+      if (profileEmail) {
+        profileEmail.textContent =
+          email;
+      }
+
+
+      const profileDepartment =
+        document.getElementById(
+          "profileDepartment"
+        );
+
+      if (profileDepartment) {
+        profileDepartment.textContent =
+          department;
+      }
+
+
+      const profileProgramValue =
+        document.getElementById(
+          "profileProgramValue"
+        );
+
+      if (profileProgramValue) {
+        profileProgramValue.textContent =
+          program;
+      }
+
+
+      const profileSemester =
+        document.getElementById(
+          "profileSemester"
+        );
+
+      if (profileSemester) {
+        profileSemester.textContent =
+          semester;
+      }
+
+
+      const profileSection =
+        document.getElementById(
+          "profileSection"
+        );
+
+      if (profileSection) {
+        profileSection.textContent =
+          section;
+      }
+
+
+      const profileBatch =
+        document.getElementById(
+          "profileBatch"
+        );
+
+      if (profileBatch) {
+        profileBatch.textContent =
+          batch;
+      }
+
+
+      const profileStatus =
+        document.getElementById(
+          "profileStatus"
+        );
+
+      if (profileStatus) {
+
+        profileStatus.textContent =
+          isActive
+            ? "Active"
+            : "Inactive";
+
+      }
+
+
+      /* SEMESTER */
+
+      const overviewSemester =
+        document.getElementById(
+          "overviewSemester"
+        );
+
+      if (overviewSemester) {
+        overviewSemester.textContent =
+          semester;
+      }
+
+
+      const semesterThreeLabel =
+        document.getElementById(
+          "semesterThreeLabel"
+        );
+
+      if (semesterThreeLabel) {
+        semesterThreeLabel.textContent =
+          semester;
+      }
+
+
+      /* TIMETABLE */
+
+      const timetableStudentInfo =
+        document.getElementById(
+          "timetableStudentInfo"
+        );
+
+      if (timetableStudentInfo) {
+
+        timetableStudentInfo.textContent =
+          `${program} • ${semester} • Section ${section}`;
+
+      }
+
+
+      const timetableDescription =
+        document.getElementById(
+          "timetableDescription"
+        );
+
+      if (timetableDescription) {
+
+        timetableDescription.textContent =
+          `${academicYear} timetable for ${program}, ${semester}, Section ${section}.`;
+
+      }
+
+
+      const modalStudentInfo =
+        document.getElementById(
+          "modalStudentInfo"
+        );
+
+      if (modalStudentInfo) {
+
+        modalStudentInfo.textContent =
+          `${name} • ${studentId} • ${semester}`;
+
+      }
+
+
+      /* GLOBAL ACCESS */
+
+      window.bwuCurrentStudent = {
+        uid: user.uid,
+        email,
+        name,
+        studentId,
+        department,
+        program,
+        semester,
+        section,
+        batch,
+        academicYear,
+        isActive
+      };
+
+    }
+
+
+    /*
+      Load Firebase profile.
+    */
+
+    async function loadLoggedInStudent(user) {
+
+      try {
+
+        if (!user) {
+
+          window.location.href =
+            "student-login.html";
+
+          return;
+
+        }
+
+
+        const profileReference =
+          doc(
+            db,
+            "Users",
+            user.uid
+          );
+
+
+        const profileSnapshot =
+          await getDoc(
+            profileReference
+          );
+
+
+        if (!profileSnapshot.exists()) {
+
+          console.error(
+            "Student profile not found for UID:",
+            user.uid
+          );
+
+          await signOut(auth);
+
+          alert(
+            "Your Firebase account exists, but your academic profile has not been created."
+          );
+
+          window.location.href =
+            "student-login.html";
+
+          return;
+
+        }
+
+
+        const profile =
+          profileSnapshot.data();
+
+
+        /*
+          Security check:
+          dashboard only accepts STUDENT accounts.
+        */
+
+        if (
+          profile.role &&
+          String(profile.role).toUpperCase() !==
+            "STUDENT"
+        ) {
+
+          await signOut(auth);
+
+          alert(
+            "This account is not registered as a student account."
+          );
+
+          window.location.href =
+            "student-login.html";
+
+          return;
+
+        }
+
+
+        /*
+          Security check:
+          inactive students cannot use dashboard.
+        */
+
+        if (
+          profile.isActive === false
+        ) {
+
+          alert(
+            "Your student account is currently inactive. Please contact the administrator."
+          );
+
+          await signOut(auth);
+
+          window.location.href =
+            "student-login.html";
+
+          return;
+
+        }
+
+
+        renderStudentProfile(
+          user,
+          profile
+        );
+
+
+        console.log(
+          "BWU student authenticated:",
+          {
+            uid: user.uid,
+            email: user.email,
+            profile
+          }
+        );
+
+      } catch (error) {
+
+        console.error(
+          "Student dashboard Firebase error:",
+          error
+        );
+
+
+        alert(
+          "Unable to load your academic profile. Please login again."
+        );
+
+
+        try {
+          await signOut(auth);
+        } catch {
+          // Ignore sign-out error.
+        }
+
+
+        window.location.href =
+          "student-login.html";
+
+      }
+
+    }
+
+
+    /*
+      Firebase authentication listener.
+    */
+
+    auth.onAuthStateChanged(
+      async (user) => {
+
+        if (!user) {
+
+          window.location.href =
+            "student-login.html";
+
+          return;
+
+        }
+
+
+        await loadLoggedInStudent(
+          user
+        );
+
+      }
+    );
+
+
+    /*
+      Secure logout.
+    */
+
+    const logoutButton =
+      document.getElementById(
+        "studentLogout"
+      );
+
+
+    if (logoutButton) {
+
+      logoutButton.addEventListener(
+        "click",
+        async (event) => {
+
+          event.preventDefault();
+
+
+          try {
+
+            await signOut(auth);
+
+          } catch (error) {
+
+            console.error(
+              "Logout error:",
+              error
+            );
+
+          } finally {
+
+            window.location.href =
+              "index.html";
+
+          }
+
+        }
+      );
+
+    }
+
+  </script>
+
+
+  <!-- Existing BWU configuration/addons -->
+
+  <script
+    src="/bwu-config.js"
+  ></script>
+
+  <script
+    src="/bwu-addons.js"
+    defer
+  ></script>
+
+</body>
+</html>
