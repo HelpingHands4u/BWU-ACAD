@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Student Dashboard — BWU</title>
+  <title>Student Dashboard | Brainware University</title>
 
   <meta
     name="description"
@@ -18,10 +18,7 @@
     rel="stylesheet"
   />
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
+  <link rel="stylesheet" href="/style.css" />
 
   <link
     rel="stylesheet"
@@ -29,49 +26,423 @@
   />
 
   <style>
-    .dashboard-hero {
-      margin-top: 24px;
+    /* =========================================================
+       BWU STUDENT PORTAL
+       Complete dashboard layout
+    ========================================================== */
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-soft: #eff6ff;
+
+      --bg: #f5f7fb;
+      --card: #ffffff;
+
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+
+      --sidebar: #0f172a;
+      --sidebar-text: #cbd5e1;
+      --sidebar-active: #2563eb;
+
+      --success: #16a34a;
+      --success-soft: #f0fdf4;
+
+      --warning: #d97706;
+      --warning-soft: #fffbeb;
+
+      --danger: #dc2626;
+      --danger-soft: #fef2f2;
+
+      --radius: 16px;
+      --shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
     }
 
-    .hero-student {
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    /* =========================================================
+       TOP NAVIGATION
+    ========================================================== */
+
+    .portal-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      height: 72px;
+
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+
+      backdrop-filter: blur(12px);
+    }
+
+    .portal-header-inner {
+      width: min(1440px, calc(100% - 40px));
+      height: 100%;
+      margin: auto;
+
       display: flex;
       align-items: center;
-      gap: 18px;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .hero-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
+    .portal-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .portal-brand-logo {
+      width: 40px;
+      height: 40px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+
+      border-radius: 11px;
+
+      background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+      );
+
       color: white;
+      font-size: 17px;
+
+      box-shadow:
+        0 5px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    .portal-brand-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .portal-brand-text span {
+      display: block;
+      margin-top: 2px;
+
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .portal-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .portal-user-avatar {
+      width: 40px;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: var(--primary-soft);
+      color: var(--primary);
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .portal-user-info strong,
+    .portal-user-info span {
+      display: block;
+    }
+
+    .portal-user-info strong {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .portal-user-info span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       PAGE
+    ========================================================== */
+
+    .portal-page {
+      width: min(1440px, calc(100% - 40px));
+      margin: auto;
+      padding: 24px 0 50px;
+    }
+
+    /* =========================================================
+       STUDENT HEADER
+    ========================================================== */
+
+    .student-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      padding: 22px 24px;
+      margin-bottom: 22px;
+
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .student-identity {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      min-width: 0;
+    }
+
+    .student-avatar {
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex: 0 0 58px;
+
+      border-radius: 16px;
+
+      background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+      );
+
+      color: white;
+
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .student-identity h1 {
+      margin: 0;
+
+      font-size: 23px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .student-identity p {
+      margin: 5px 0 8px;
+
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .account-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      color: var(--success);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .account-status i {
+      font-size: 7px;
+    }
+
+    .account-status.inactive {
+      color: var(--danger);
+    }
+
+    .student-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(80px, 1fr));
+      gap: 24px;
+
       flex-shrink: 0;
     }
 
-    .student-active-badge {
-      display: inline-flex;
+    .student-meta-item span,
+    .student-meta-item strong {
+      display: block;
+    }
+
+    .student-meta-item span {
+      margin-bottom: 4px;
+
+      color: var(--muted);
+
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .student-meta-item strong {
+      font-size: 12px;
+    }
+
+    /* =========================================================
+       MAIN LAYOUT
+    ========================================================== */
+
+    .portal-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 22px;
+
+      align-items: start;
+    }
+
+    /* =========================================================
+       SIDEBAR
+    ========================================================== */
+
+    .portal-sidebar {
+      position: sticky;
+      top: 94px;
+
+      padding: 10px;
+
+      background: var(--sidebar);
+
+      border-radius: var(--radius);
+
+      box-shadow:
+        0 10px 28px rgba(15, 23, 42, 0.14);
+    }
+
+    .sidebar-label {
+      padding: 8px 11px 7px;
+
+      color: #64748b;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .sidebar-link {
+      width: 100%;
+      min-height: 42px;
+
+      display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 11px;
+
+      padding: 0 12px;
+
+      border: 0;
+      border-radius: 10px;
+
+      background: transparent;
+
+      color: var(--sidebar-text);
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition:
+        background 0.18s ease,
+        color 0.18s ease;
     }
 
-    .student-active-badge span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
+    .sidebar-link i {
+      width: 17px;
+
+      text-align: center;
+
+      font-size: 13px;
     }
 
-    .student-active-badge.inactive span {
-      background: #ef4444;
+    .sidebar-link:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: white;
     }
 
-    .student-loading {
-      opacity: 0.65;
+    .sidebar-link.active {
+      background: var(--sidebar-active);
+      color: white;
+
+      box-shadow:
+        0 5px 14px rgba(37, 99, 235, 0.28);
+    }
+
+    .sidebar-divider {
+      height: 1px;
+
+      margin: 12px 6px;
+
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .sidebar-link.logout {
+      color: #fca5a5;
+    }
+
+    .sidebar-link.logout:hover {
+      background: rgba(220, 38, 38, 0.12);
+      color: #fecaca;
+    }
+
+    /* =========================================================
+       CONTENT
+    ========================================================== */
+
+    .portal-content {
+      min-width: 0;
     }
 
     .feature-view {
@@ -82,96 +453,783 @@
       display: block;
     }
 
-    .course-table {
-      width: 100%;
-      border-collapse: collapse;
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 17px;
     }
 
-    .course-table th,
-    .course-table td {
-      padding: 13px 12px;
-      text-align: left;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    .section-header h2 {
+      margin: 0 0 4px;
+
+      font-size: 20px;
+      font-weight: 800;
     }
 
-    .course-table th {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+    .section-header p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 11px;
     }
 
-    .attendance-progress {
-      width: 100%;
-      height: 8px;
-      border-radius: 999px;
-      background: #e5e7eb;
+    /* =========================================================
+       CARDS
+    ========================================================== */
+
+    .portal-card {
+      margin-bottom: 18px;
+
+      padding: 20px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .card-title {
+      margin-bottom: 17px;
+    }
+
+    .card-title h3 {
+      margin: 0 0 4px;
+
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .card-title p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       KPI
+    ========================================================== */
+
+    .kpi-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 13px;
+
+      margin-bottom: 18px;
+    }
+
+    .kpi-card {
+      position: relative;
+
+      padding: 17px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      box-shadow: var(--shadow);
+
       overflow: hidden;
     }
 
-    .attendance-progress span {
+    .kpi-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 55px;
+      height: 55px;
+
+      right: -20px;
+      top: -20px;
+
+      border-radius: 50%;
+
+      background: var(--primary-soft);
+    }
+
+    .kpi-label {
+      position: relative;
+      z-index: 1;
+
+      color: var(--muted);
+
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .kpi-value {
+      position: relative;
+      z-index: 1;
+
       display: block;
+
+      margin: 6px 0 3px;
+
+      font-size: 26px;
+      line-height: 1;
+
+      font-weight: 800;
+    }
+
+    .kpi-note {
+      position: relative;
+      z-index: 1;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    /* =========================================================
+       PERFORMANCE GRID
+    ========================================================== */
+
+    .performance-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.3fr 1fr;
+
+      gap: 18px;
+    }
+
+    .overview-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+    .overview-item {
+      padding: 14px;
+
+      background: #f8fafc;
+
+      border: 1px solid #edf2f7;
+      border-radius: 12px;
+    }
+
+    .overview-item strong {
+      display: block;
+
+      margin-bottom: 4px;
+
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .overview-item span {
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .overview-item p {
+      margin: 6px 0 0;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    /* =========================================================
+       PROGRESS
+    ========================================================== */
+
+    .progress {
+      width: 100%;
+      height: 7px;
+
+      margin-top: 9px;
+
+      overflow: hidden;
+
+      background: #e2e8f0;
+
+      border-radius: 999px;
+    }
+
+    .progress span {
+      display: block;
+
       height: 100%;
+
+      background: var(--primary);
+
       border-radius: inherit;
+    }
+
+    /* =========================================================
+       SEMESTER PERFORMANCE
+    ========================================================== */
+
+    .semester-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .semester-row {
+      display: grid;
+
+      grid-template-columns:
+        90px minmax(0, 1fr) 32px;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .semester-row label {
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .semester-row strong {
+      font-size: 11px;
+      text-align: right;
+    }
+
+    .semester-progress {
+      height: 8px;
+
+      background: #e2e8f0;
+
+      border-radius: 999px;
+
+      overflow: hidden;
+    }
+
+    .semester-progress span {
+      display: block;
+
+      height: 100%;
+
+      background: var(--primary);
+
+      border-radius: inherit;
+    }
+
+    /* =========================================================
+       HEATMAP
+    ========================================================== */
+
+    .heatmap {
+      display: grid;
+      gap: 8px;
+    }
+
+    .heatmap-row {
+      display: grid;
+
+      grid-template-columns:
+        35px repeat(4, minmax(0, 1fr));
+
+      gap: 7px;
+
+      align-items: center;
+    }
+
+    .heatmap-row label {
+      color: var(--muted);
+
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .heat {
+      height: 18px;
+
+      border-radius: 5px;
+
+      background: #e2e8f0;
+    }
+
+    .heat.medium {
+      background: #93c5fd;
+    }
+
+    .heat.high {
       background: #2563eb;
+    }
+
+    /* =========================================================
+       TABLES
+    ========================================================== */
+
+    .table-wrapper {
+      width: 100%;
+
+      overflow-x: auto;
+    }
+
+    .portal-table {
+      width: 100%;
+
+      min-width: 650px;
+
+      border-collapse: collapse;
+    }
+
+    .portal-table th,
+    .portal-table td {
+      padding: 13px 12px;
+
+      border-bottom: 1px solid var(--border);
+
+      text-align: left;
+
+      font-size: 11px;
+    }
+
+    .portal-table th {
+      color: var(--muted);
+
+      background: #f8fafc;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .portal-table tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    /* =========================================================
+       STATUS BADGES
+    ========================================================== */
+
+    .status {
+      display: inline-flex;
+
+      align-items: center;
+
+      padding: 4px 8px;
+
+      border-radius: 999px;
+
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .status.success {
+      background: var(--success-soft);
+      color: var(--success);
+    }
+
+    .status.warning {
+      background: var(--warning-soft);
+      color: var(--warning);
+    }
+
+    .status.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+
+    /* =========================================================
+       PROFILE
+    ========================================================== */
+
+    .profile-top {
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+      padding-bottom: 18px;
+
+      margin-bottom: 18px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile-avatar {
+      width: 54px;
+      height: 54px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background: var(--primary-soft);
+
+      color: var(--primary);
+
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .profile-top h3 {
+      margin: 0 0 4px;
+
+      font-size: 17px;
+    }
+
+    .profile-top p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 10px;
     }
 
     .profile-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 10px;
     }
 
     .profile-item {
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(148, 163, 184, 0.08);
+      padding: 13px;
+
+      background: #f8fafc;
+
+      border: 1px solid #edf2f7;
+
+      border-radius: 11px;
     }
 
     .profile-item small {
       display: block;
+
       margin-bottom: 5px;
-      opacity: 0.65;
+
+      color: var(--muted);
+
+      font-size: 8px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .profile-item strong {
       display: block;
+
       word-break: break-word;
+
+      font-size: 11px;
     }
 
-    .records-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .record-item {
+    .profile-note {
       display: flex;
+
       align-items: flex-start;
+
+      gap: 9px;
+
+      margin-top: 17px;
+
+      padding: 12px;
+
+      border-radius: 10px;
+
+      background: var(--primary-soft);
+
+      color: #1d4ed8;
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       ATTENDANCE
+    ========================================================== */
+
+    .attendance-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .attendance-item {
+      padding: 15px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+    }
+
+    .attendance-header {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 8px;
+    }
+
+    .attendance-header strong {
+      display: block;
+
+      font-size: 11px;
+    }
+
+    .attendance-header small {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    .attendance-percent {
+      color: var(--primary);
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .attendance-item > small {
+      display: block;
+
+      margin-top: 6px;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    /* =========================================================
+       RESULT CARDS
+    ========================================================== */
+
+    .result-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
       gap: 12px;
+    }
+
+    .result-card {
+      padding: 17px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      background: #f8fafc;
+    }
+
+    .result-card small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .result-card strong {
+      display: block;
+
+      margin: 6px 0 3px;
+
+      font-size: 25px;
+    }
+
+    .result-card span {
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    /* =========================================================
+       RECORDS
+    ========================================================== */
+
+    .records {
+      display: grid;
+      gap: 10px;
+    }
+
+    .record {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 12px;
+
       padding: 14px;
-      border-radius: 14px;
-      background: rgba(148, 163, 184, 0.08);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
     }
 
     .record-icon {
       width: 38px;
       height: 38px;
-      border-radius: 10px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(37, 99, 235, 0.1);
-      color: #2563eb;
+
       flex-shrink: 0;
+
+      border-radius: 10px;
+
+      background: var(--primary-soft);
+
+      color: var(--primary);
+
+      font-size: 13px;
     }
+
+    .record strong {
+      display: block;
+
+      margin-bottom: 4px;
+
+      font-size: 11px;
+    }
+
+    .record p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================== */
+
+    .portal-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      min-height: 38px;
+
+      padding: 0 14px;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      background: var(--primary);
+
+      color: white;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .portal-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* =========================================================
+       TIMETABLE
+    ========================================================== */
+
+    .timetable-box {
+      padding: 45px 20px;
+
+      text-align: center;
+
+      background: #f8fafc;
+
+      border: 1px dashed #cbd5e1;
+
+      border-radius: 14px;
+    }
+
+    .timetable-box-icon {
+      width: 56px;
+      height: 56px;
+
+      margin: 0 auto 13px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+
+      background: var(--primary-soft);
+
+      color: var(--primary);
+
+      font-size: 22px;
+    }
+
+    .timetable-box h3 {
+      margin: 0 0 6px;
+
+      font-size: 15px;
+    }
+
+    .timetable-box p {
+      max-width: 500px;
+
+      margin: 0 auto 17px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       MODAL
+    ========================================================== */
 
     .modal {
       display: none;
+
       position: fixed;
+
       inset: 0;
+
       z-index: 9999;
+
       align-items: center;
       justify-content: center;
+
       padding: 20px;
+
       background: rgba(15, 23, 42, 0.65);
     }
 
@@ -180,56 +1238,220 @@
     }
 
     .modal-content {
-      width: min(900px, 100%);
+      width: min(850px, 100%);
+
       max-height: 90vh;
-      overflow: auto;
-      border-radius: 20px;
+
+      overflow-y: auto;
+
+      padding: 22px;
+
       background: white;
-      padding: 24px;
+
+      border-radius: 17px;
+
+      box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.2);
     }
 
     .modal-header {
       display: flex;
+
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+
+      gap: 15px;
+
       margin-bottom: 18px;
     }
 
+    .modal-header h2 {
+      margin: 0 0 4px;
+
+      font-size: 18px;
+    }
+
+    .modal-header p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
     .modal-close {
+      width: 34px;
+      height: 34px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       border: 0;
-      background: transparent;
-      font-size: 22px;
+
+      border-radius: 9px;
+
+      background: #f1f5f9;
+
+      color: #475569;
+
       cursor: pointer;
+
+      font-size: 15px;
     }
 
-    .timetable-placeholder {
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-      background: #f8fafc;
-    }
+    /* =========================================================
+       MOBILE
+    ========================================================== */
 
-    @media (max-width: 768px) {
-      .profile-grid {
+    @media (max-width: 1100px) {
+      .student-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .student-meta {
+        width: 100%;
+      }
+
+      .performance-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-student {
-        align-items: flex-start;
+      .kpi-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 800px) {
+      .portal-header-inner,
+      .portal-page {
+        width: min(100% - 24px, 1440px);
       }
 
-      .hero-avatar {
-        width: 58px;
-        height: 58px;
+      .portal-layout {
+        grid-template-columns: 1fr;
       }
 
-      .course-table {
-        min-width: 700px;
-      }
+      .portal-sidebar {
+        position: sticky;
+        top: 72px;
 
-      .table-wrapper {
+        z-index: 500;
+
+        padding: 8px;
+
         overflow-x: auto;
+      }
+
+      .sidebar-label {
+        display: none;
+      }
+
+      .sidebar-nav {
+        flex-direction: row;
+
+        width: max-content;
+      }
+
+      .sidebar-link {
+        width: auto;
+
+        min-width: max-content;
+      }
+
+      .sidebar-divider {
+        width: 1px;
+        height: 28px;
+
+        margin: 0 4px;
+      }
+
+      .student-meta {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
+      }
+
+      .overview-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .profile-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .result-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .portal-header {
+        height: 64px;
+      }
+
+      .portal-page {
+        padding-top: 14px;
+      }
+
+      .portal-user-info {
+        display: none;
+      }
+
+      .student-header {
+        padding: 17px;
+      }
+
+      .student-identity h1 {
+        font-size: 19px;
+      }
+
+      .student-avatar {
+        width: 50px;
+        height: 50px;
+
+        flex-basis: 50px;
+      }
+
+      .student-meta {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .kpi-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+      }
+
+      .kpi-card {
+        padding: 14px;
+      }
+
+      .kpi-value {
+        font-size: 22px;
+      }
+
+      .portal-card {
+        padding: 15px;
+      }
+
+      .overview-grid,
+      .profile-grid,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
   </style>
@@ -238,65 +1460,79 @@
 <body>
 
   <!-- =========================================================
-       NAVBAR
+       HEADER
   ========================================================== -->
 
-  <header class="navbar">
-    <div class="container nav-inner">
+  <header class="portal-header">
 
-      <a class="brand" href="index.html">
-        <span class="logo">
+    <div class="portal-header-inner">
+
+      <a
+        href="index.html"
+        class="portal-brand"
+      >
+
+        <div class="portal-brand-logo">
           <i class="fa-solid fa-building-columns"></i>
-        </span>
+        </div>
 
-        <span>
+        <div class="portal-brand-text">
           <strong>BWU</strong>
-          <small>Student Portal</small>
-        </span>
+          <span>Student Academic Portal</span>
+        </div>
+
       </a>
 
-      <div class="user-chip">
+
+      <div class="portal-user">
 
         <div
-          class="avatar"
+          class="portal-user-avatar"
           id="navStudentAvatar"
         >
           --
         </div>
 
-        <div>
+        <div class="portal-user-info">
+
           <strong
             id="navStudentName"
-            class="student-loading"
           >
             Loading...
           </strong>
 
-          <small id="navStudentMeta">
+          <span
+            id="navStudentMeta"
+          >
             Student
-          </small>
+          </span>
+
         </div>
 
       </div>
 
     </div>
+
   </header>
 
 
   <!-- =========================================================
-       MAIN DASHBOARD
+       PAGE
   ========================================================== -->
 
-  <main class="container dashboard-page">
+  <main class="portal-page">
 
-    <!-- HERO -->
 
-    <section class="dashboard-hero">
+    <!-- =======================================================
+         STUDENT HEADER
+    ======================================================== -->
 
-      <div class="hero-student">
+    <section class="student-header">
+
+      <div class="student-identity">
 
         <div
-          class="hero-avatar"
+          class="student-avatar"
           id="heroStudentAvatar"
         >
           --
@@ -313,37 +1549,63 @@
           </p>
 
           <div
-            class="student-active-badge"
+            class="account-status"
             id="studentStatusBadge"
           >
-            <span></span>
-            <strong>Checking account...</strong>
+
+            <i class="fa-solid fa-circle"></i>
+
+            <span>
+              Checking account...
+            </span>
+
           </div>
 
         </div>
 
       </div>
 
-      <div class="hero-meta">
 
-        <div>
-          <small>Student ID</small>
-          <strong id="studentId">Loading...</strong>
+      <div class="student-meta">
+
+        <div class="student-meta-item">
+
+          <span>Student ID</span>
+
+          <strong id="studentId">
+            Loading...
+          </strong>
+
         </div>
 
-        <div>
-          <small>Department</small>
-          <strong id="studentDepartment">Loading...</strong>
+        <div class="student-meta-item">
+
+          <span>Department</span>
+
+          <strong id="studentDepartment">
+            Loading...
+          </strong>
+
         </div>
 
-        <div>
-          <small>Semester</small>
-          <strong id="studentSemester">Loading...</strong>
+        <div class="student-meta-item">
+
+          <span>Semester</span>
+
+          <strong id="studentSemester">
+            Loading...
+          </strong>
+
         </div>
 
-        <div>
-          <small>Section</small>
-          <strong id="studentSection">Loading...</strong>
+        <div class="student-meta-item">
+
+          <span>Section</span>
+
+          <strong id="studentSection">
+            Loading...
+          </strong>
+
         </div>
 
       </div>
@@ -355,13 +1617,22 @@
          SIDEBAR + CONTENT
     ======================================================== -->
 
-    <div class="dashboard-layout">
+    <div class="portal-layout">
 
-      <!-- SIDEBAR -->
 
-      <aside class="sidebar">
+      <!-- =====================================================
+           SIDEBAR
+      ====================================================== -->
 
-        <nav>
+      <aside class="portal-sidebar">
+
+        <div class="sidebar-label">
+          Academic Portal
+        </div>
+
+
+        <nav class="sidebar-nav">
+
 
           <a
             href="#"
@@ -372,6 +1643,7 @@
             <span>Dashboard</span>
           </a>
 
+
           <a
             href="#"
             class="sidebar-link"
@@ -381,14 +1653,16 @@
             <span>Profile</span>
           </a>
 
+
           <a
             href="#"
             class="sidebar-link"
             data-view="courses"
           >
-            <i class="fa-solid fa-book"></i>
+            <i class="fa-solid fa-book-open"></i>
             <span>Courses</span>
           </a>
+
 
           <a
             href="#"
@@ -399,6 +1673,7 @@
             <span>Attendance</span>
           </a>
 
+
           <a
             href="#"
             class="sidebar-link"
@@ -407,6 +1682,7 @@
             <i class="fa-solid fa-calendar-days"></i>
             <span>Timetable</span>
           </a>
+
 
           <a
             href="#"
@@ -417,6 +1693,7 @@
             <span>Marks & Exams</span>
           </a>
 
+
           <a
             href="#"
             class="sidebar-link"
@@ -425,6 +1702,7 @@
             <i class="fa-solid fa-chart-line"></i>
             <span>Results</span>
           </a>
+
 
           <a
             href="#"
@@ -435,9 +1713,13 @@
             <span>Records</span>
           </a>
 
+
+          <div class="sidebar-divider"></div>
+
+
           <a
             href="#"
-            class="sidebar-link"
+            class="sidebar-link logout"
             id="studentLogout"
           >
             <i class="fa-solid fa-right-from-bracket"></i>
@@ -449,13 +1731,15 @@
       </aside>
 
 
-      <!-- CONTENT -->
+      <!-- =====================================================
+           CONTENT
+      ====================================================== -->
 
-      <section class="dashboard-content">
+      <section class="portal-content">
 
 
         <!-- ===================================================
-             DASHBOARD VIEW
+             DASHBOARD
         ==================================================== -->
 
         <div
@@ -463,290 +1747,411 @@
           id="view-dashboard"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
-              <h2>Academic Overview</h2>
+
+              <h2>
+                Academic Overview
+              </h2>
+
               <p>
-                Your current academic performance and attendance.
+                Your current academic performance at a glance.
               </p>
+
             </div>
 
           </div>
 
 
-          <!-- KPI CARDS -->
+          <!-- KPI -->
 
           <div class="kpi-grid">
 
-            <div class="kpi-card">
-              <small>CGPA</small>
-              <strong>8.1</strong>
-              <span>Overall</span>
-            </div>
 
             <div class="kpi-card">
-              <small>SGPA</small>
-              <strong>—</strong>
-              <span>Current semester</span>
+
+              <span class="kpi-label">
+                CGPA
+              </span>
+
+              <strong class="kpi-value">
+                8.1
+              </strong>
+
+              <span class="kpi-note">
+                Overall performance
+              </span>
+
             </div>
 
-            <div class="kpi-card">
-              <small>Attendance</small>
-              <strong>92.2%</strong>
-              <span>Overall</span>
-            </div>
 
             <div class="kpi-card">
-              <small>Credits</small>
-              <strong>22</strong>
-              <span>Completed</span>
+
+              <span class="kpi-label">
+                SGPA
+              </span>
+
+              <strong class="kpi-value">
+                —
+              </strong>
+
+              <span class="kpi-note">
+                Current semester
+              </span>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+              <span class="kpi-label">
+                Attendance
+              </span>
+
+              <strong class="kpi-value">
+                92.2%
+              </strong>
+
+              <span class="kpi-note">
+                Overall attendance
+              </span>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+              <span class="kpi-label">
+                Credits
+              </span>
+
+              <strong class="kpi-value">
+                22
+              </strong>
+
+              <span class="kpi-note">
+                Completed credits
+              </span>
+
             </div>
 
           </div>
 
 
-          <!-- OVERVIEW -->
+          <!-- PERFORMANCE -->
 
-          <div class="dashboard-card">
+          <div class="performance-grid">
 
-            <div class="card-heading">
-              <div>
-                <h3>Academic Performance</h3>
+
+            <div class="portal-card">
+
+              <div class="card-title">
+
+                <h3>
+                  Academic Performance
+                </h3>
+
                 <p>
                   Current academic summary
                 </p>
+
               </div>
-            </div>
 
-            <div class="overview-grid">
 
-              <div class="overview-item">
+              <div class="overview-grid">
 
-                <div class="overview-value">
-                  92.2%
+
+                <div class="overview-item">
+
+                  <strong>
+                    92.2%
+                  </strong>
+
+                  <span>
+                    Attendance
+                  </span>
+
+                  <div class="progress">
+                    <span style="width:92.2%"></span>
+                  </div>
+
+                  <p>
+                    688 / 746 classes
+                  </p>
+
                 </div>
 
-                <small>Attendance</small>
 
-                <div class="attendance-progress">
-                  <span style="width:92.2%"></span>
+                <div class="overview-item">
+
+                  <strong>
+                    8.1
+                  </strong>
+
+                  <span>
+                    CGPA
+                  </span>
+
+                  <p>
+                    Overall performance
+                  </p>
+
                 </div>
 
-                <p>
-                  688 / 746 classes
-                </p>
 
-              </div>
+                <div class="overview-item">
 
+                  <strong>
+                    8.1
+                  </strong>
 
-              <div class="overview-item">
+                  <span>
+                    Semester I
+                  </span>
 
-                <div class="overview-value">
-                  8.1
+                  <p>
+                    SGPA
+                  </p>
+
                 </div>
 
-                <small>CGPA</small>
 
-                <p>
-                  Overall performance
-                </p>
+                <div class="overview-item">
 
-              </div>
+                  <strong>
+                    6.9
+                  </strong>
 
+                  <span>
+                    Semester II
+                  </span>
 
-              <div class="overview-item">
+                  <p>
+                    SGPA
+                  </p>
 
-                <div class="overview-value">
-                  8.1
                 </div>
 
-                <small>Semester I</small>
 
-                <p>
-                  SGPA
-                </p>
+                <div class="overview-item">
 
-              </div>
+                  <strong>
+                    55
+                  </strong>
 
+                  <span>
+                    MAR Points
+                  </span>
 
-              <div class="overview-item">
+                  <p>
+                    Current record
+                  </p>
 
-                <div class="overview-value">
-                  6.9
                 </div>
 
-                <small>Semester II</small>
 
-                <p>
-                  SGPA
-                </p>
+                <div class="overview-item">
 
-              </div>
+                  <strong>
+                    III
+                  </strong>
 
+                  <span>
+                    Current Term
+                  </span>
 
-              <div class="overview-item">
+                  <p id="overviewSemester">
+                    Semester III
+                  </p>
 
-                <div class="overview-value">
-                  55
                 </div>
 
-                <small>MAR Points</small>
-
-                <p>
-                  Current record
-                </p>
-
-              </div>
-
-
-              <div class="overview-item">
-
-                <div class="overview-value">
-                  III
-                </div>
-
-                <small>Current Term</small>
-
-                <p id="overviewSemester">
-                  Semester III
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- ATTENDANCE HEATMAP -->
-
-          <div class="dashboard-card">
-
-            <div class="card-heading">
-
-              <div>
-                <h3>Attendance Activity</h3>
-                <p>
-                  Monthly attendance overview
-                </p>
-              </div>
-
-            </div>
-
-            <div class="attendance-heatmap">
-
-              <div class="heatmap-row">
-
-                <span>Jan</span>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-                <i class="heat medium"></i>
-                <i class="heat high"></i>
-
-              </div>
-
-              <div class="heatmap-row">
-
-                <span>Feb</span>
-                <i class="heat high"></i>
-                <i class="heat medium"></i>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-
-              </div>
-
-              <div class="heatmap-row">
-
-                <span>Mar</span>
-                <i class="heat medium"></i>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-                <i class="heat medium"></i>
-
-              </div>
-
-              <div class="heatmap-row">
-
-                <span>Apr</span>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-
-              </div>
-
-              <div class="heatmap-row">
-
-                <span>May</span>
-                <i class="heat medium"></i>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
-                <i class="heat high"></i>
 
               </div>
 
             </div>
 
-          </div>
 
+            <!-- SEMESTER PERFORMANCE -->
 
-          <!-- SGPA -->
+            <div class="portal-card">
 
-          <div class="dashboard-card">
+              <div class="card-title">
 
-            <div class="card-heading">
+                <h3>
+                  Semester Performance
+                </h3>
 
-              <div>
-                <h3>Semester Performance</h3>
                 <p>
                   SGPA progression
                 </p>
+
+              </div>
+
+
+              <div class="semester-list">
+
+
+                <div class="semester-row">
+
+                  <label>
+                    Semester I
+                  </label>
+
+                  <div class="semester-progress">
+
+                    <span
+                      style="width:81%"
+                    ></span>
+
+                  </div>
+
+                  <strong>
+                    8.1
+                  </strong>
+
+                </div>
+
+
+                <div class="semester-row">
+
+                  <label>
+                    Semester II
+                  </label>
+
+                  <div class="semester-progress">
+
+                    <span
+                      style="width:69%"
+                    ></span>
+
+                  </div>
+
+                  <strong>
+                    6.9
+                  </strong>
+
+                </div>
+
+
+                <div class="semester-row">
+
+                  <label id="semesterThreeLabel">
+                    Semester III
+                  </label>
+
+                  <div class="semester-progress">
+
+                    <span
+                      style="width:0%"
+                    ></span>
+
+                  </div>
+
+                  <strong>
+                    —
+                  </strong>
+
+                </div>
+
+
               </div>
 
             </div>
 
-            <div class="semester-chart">
+          </div>
 
-              <div class="semester-item">
 
-                <span>Semester I</span>
+          <!-- ATTENDANCE ACTIVITY -->
 
-                <div class="semester-bar">
-                  <span style="width:81%"></span>
-                </div>
+          <div class="portal-card">
 
-                <strong>8.1</strong>
+            <div class="card-title">
+
+              <h3>
+                Attendance Activity
+              </h3>
+
+              <p>
+                Monthly attendance overview
+              </p>
+
+            </div>
+
+
+            <div class="heatmap">
+
+
+              <div class="heatmap-row">
+
+                <label>
+                  Jan
+                </label>
+
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+
+              </div>
+
+
+              <div class="heatmap-row">
+
+                <label>
+                  Feb
+                </label>
+
+                <i class="heat high"></i>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
 
               </div>
 
 
-              <div class="semester-item">
+              <div class="heatmap-row">
 
-                <span>Semester II</span>
+                <label>
+                  Mar
+                </label>
 
-                <div class="semester-bar">
-                  <span style="width:69%"></span>
-                </div>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat medium"></i>
 
-                <strong>6.9</strong>
+              </div>
+
+
+              <div class="heatmap-row">
+
+                <label>
+                  Apr
+                </label>
+
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
 
               </div>
 
 
-              <div class="semester-item">
+              <div class="heatmap-row">
 
-                <span id="semesterThreeLabel">
-                  Semester III
-                </span>
+                <label>
+                  May
+                </label>
 
-                <div class="semester-bar">
-                  <span style="width:0%"></span>
-                </div>
-
-                <strong>—</strong>
+                <i class="heat medium"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
+                <i class="heat high"></i>
 
               </div>
+
 
             </div>
 
@@ -764,24 +2169,30 @@
           id="view-profile"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
-              <h2>Student Profile</h2>
+
+              <h2>
+                Student Profile
+              </h2>
+
               <p>
                 Your registered academic identity.
               </p>
+
             </div>
 
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
-            <div class="profile-header">
+
+            <div class="profile-top">
 
               <div
-                class="hero-avatar"
+                class="profile-avatar"
                 id="profileAvatar"
               >
                 --
@@ -789,9 +2200,9 @@
 
               <div>
 
-                <h2 id="profileName">
+                <h3 id="profileName">
                   Loading...
-                </h2>
+                </h3>
 
                 <p id="profileProgram">
                   Loading...
@@ -804,9 +2215,12 @@
 
             <div class="profile-grid">
 
+
               <div class="profile-item">
 
-                <small>Student Code</small>
+                <small>
+                  Student Code
+                </small>
 
                 <strong id="profileStudentId">
                   Loading...
@@ -817,7 +2231,9 @@
 
               <div class="profile-item">
 
-                <small>Email</small>
+                <small>
+                  Email
+                </small>
 
                 <strong id="profileEmail">
                   Loading...
@@ -828,7 +2244,9 @@
 
               <div class="profile-item">
 
-                <small>Department</small>
+                <small>
+                  Department
+                </small>
 
                 <strong id="profileDepartment">
                   Loading...
@@ -839,7 +2257,9 @@
 
               <div class="profile-item">
 
-                <small>Program</small>
+                <small>
+                  Program
+                </small>
 
                 <strong id="profileProgramValue">
                   Loading...
@@ -850,7 +2270,9 @@
 
               <div class="profile-item">
 
-                <small>Semester</small>
+                <small>
+                  Semester
+                </small>
 
                 <strong id="profileSemester">
                   Loading...
@@ -861,7 +2283,9 @@
 
               <div class="profile-item">
 
-                <small>Section</small>
+                <small>
+                  Section
+                </small>
 
                 <strong id="profileSection">
                   Loading...
@@ -872,7 +2296,9 @@
 
               <div class="profile-item">
 
-                <small>Batch</small>
+                <small>
+                  Batch
+                </small>
 
                 <strong id="profileBatch">
                   Loading...
@@ -883,7 +2309,9 @@
 
               <div class="profile-item">
 
-                <small>Account Status</small>
+                <small>
+                  Account Status
+                </small>
 
                 <strong id="profileStatus">
                   Checking...
@@ -894,7 +2322,9 @@
 
               <div class="profile-item">
 
-                <small>CGPA</small>
+                <small>
+                  CGPA
+                </small>
 
                 <strong>
                   8.10
@@ -905,7 +2335,9 @@
 
               <div class="profile-item">
 
-                <small>Total Classes</small>
+                <small>
+                  Total Classes
+                </small>
 
                 <strong>
                   688 / 746
@@ -916,13 +2348,16 @@
 
               <div class="profile-item">
 
-                <small>Active Subjects</small>
+                <small>
+                  Active Subjects
+                </small>
 
                 <strong id="profileCourseCount">
                   10
                 </strong>
 
               </div>
+
 
             </div>
 
@@ -932,11 +2367,12 @@
               <i class="fa-solid fa-circle-info"></i>
 
               <span>
-                Your identity and account status are loaded from
-                your Firebase academic profile.
+                Your identity and account status are loaded
+                directly from your Firebase academic profile.
               </span>
 
             </div>
+
 
           </div>
 
@@ -952,36 +2388,56 @@
           id="view-courses"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
-              <h2>My Courses</h2>
+
+              <h2>
+                My Courses
+              </h2>
+
               <p>
                 Courses registered for the current semester.
               </p>
+
             </div>
 
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
             <div class="table-wrapper">
 
-              <table class="course-table">
+              <table class="portal-table">
 
                 <thead>
 
                   <tr>
-                    <th>Code</th>
-                    <th>Course</th>
-                    <th>CT-01</th>
-                    <th>Status</th>
+
+                    <th>
+                      Code
+                    </th>
+
+                    <th>
+                      Course
+                    </th>
+
+                    <th>
+                      CT-01
+                    </th>
+
+                    <th>
+                      Status
+                    </th>
+
                   </tr>
 
                 </thead>
 
-                <tbody id="courseNameList"></tbody>
+                <tbody
+                  id="courseNameList"
+                ></tbody>
 
               </table>
 
@@ -1001,23 +2457,28 @@
           id="view-attendance"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
-              <h2>Attendance</h2>
+
+              <h2>
+                Attendance
+              </h2>
+
               <p>
                 Course-wise attendance overview.
               </p>
+
             </div>
 
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
             <div
               id="courseAttendanceList"
-              class="attendance-course-list"
+              class="attendance-list"
             ></div>
 
           </div>
@@ -1034,11 +2495,13 @@
           id="view-timetable"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
 
-              <h2>Class Timetable</h2>
+              <h2>
+                Class Timetable
+              </h2>
 
               <p id="timetableStudentInfo">
                 Loading student information...
@@ -1048,7 +2511,7 @@
 
             <button
               type="button"
-              class="btn btn-primary"
+              class="portal-button"
               onclick="openTimetable()"
             >
               <i class="fa-solid fa-file-pdf"></i>
@@ -1058,17 +2521,18 @@
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
-            <div class="timetable-placeholder">
+            <div class="timetable-box">
 
-              <i
-                class="fa-solid fa-calendar-days"
-                style="font-size:42px;margin-bottom:16px"
-              ></i>
+              <div class="timetable-box-icon">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+              </div>
 
               <h3>
-                Semester Timetable
+                Official Semester Timetable
               </h3>
 
               <p id="timetableDescription">
@@ -1077,9 +2541,10 @@
 
               <button
                 type="button"
-                class="btn btn-primary"
+                class="portal-button"
                 onclick="openTimetable()"
               >
+                <i class="fa-solid fa-calendar-days"></i>
                 Open Timetable
               </button>
 
@@ -1099,37 +2564,60 @@
           id="view-marks"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
-              <h2>Marks & Examinations</h2>
+
+              <h2>
+                Marks & Examinations
+              </h2>
+
               <p>
                 Internal assessment and examination records.
               </p>
+
             </div>
 
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
             <div class="table-wrapper">
 
-              <table class="course-table">
+              <table class="portal-table">
 
                 <thead>
 
                   <tr>
-                    <th>Course Code</th>
-                    <th>Course</th>
-                    <th>CT-01</th>
-                    <th>Maximum</th>
-                    <th>Status</th>
+
+                    <th>
+                      Course Code
+                    </th>
+
+                    <th>
+                      Course
+                    </th>
+
+                    <th>
+                      CT-01
+                    </th>
+
+                    <th>
+                      Maximum
+                    </th>
+
+                    <th>
+                      Status
+                    </th>
+
                   </tr>
 
                 </thead>
 
-                <tbody id="marksRows"></tbody>
+                <tbody
+                  id="marksRows"
+                ></tbody>
 
               </table>
 
@@ -1149,83 +2637,119 @@
           id="view-results"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
-              <h2>Academic Results</h2>
+
+              <h2>
+                Academic Results
+              </h2>
+
               <p>
                 Semester-wise academic performance.
               </p>
+
             </div>
 
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
             <div class="result-grid">
 
+
               <div class="result-card">
 
-                <small>Semester I</small>
+                <small>
+                  Semester I
+                </small>
 
-                <strong>8.10</strong>
+                <strong>
+                  8.10
+                </strong>
 
-                <span>SGPA</span>
+                <span>
+                  SGPA
+                </span>
 
               </div>
 
 
               <div class="result-card">
 
-                <small>Semester II</small>
+                <small>
+                  Semester II
+                </small>
 
-                <strong>6.90</strong>
+                <strong>
+                  6.90
+                </strong>
 
-                <span>SGPA</span>
+                <span>
+                  SGPA
+                </span>
 
               </div>
 
 
               <div class="result-card">
 
-                <small>Current CGPA</small>
+                <small>
+                  Current CGPA
+                </small>
 
-                <strong>8.10</strong>
+                <strong>
+                  8.10
+                </strong>
 
-                <span>Overall</span>
+                <span>
+                  Overall
+                </span>
 
               </div>
+
 
             </div>
 
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
-            <div class="card-heading">
+            <div class="card-title">
 
-              <div>
-                <h3>Marks Record</h3>
-                <p>
-                  Previous semester performance
-                </p>
-              </div>
+              <h3>
+                Semester Results
+              </h3>
+
+              <p>
+                Academic performance history
+              </p>
 
             </div>
 
 
             <div class="table-wrapper">
 
-              <table class="course-table">
+              <table class="portal-table">
 
                 <thead>
 
                   <tr>
-                    <th>Semester</th>
-                    <th>SGPA</th>
-                    <th>Result</th>
+
+                    <th>
+                      Semester
+                    </th>
+
+                    <th>
+                      SGPA
+                    </th>
+
+                    <th>
+                      Result
+                    </th>
+
                   </tr>
 
                 </thead>
@@ -1233,21 +2757,57 @@
                 <tbody>
 
                   <tr>
-                    <td>Semester I</td>
-                    <td>8.10</td>
-                    <td>Passed</td>
+
+                    <td>
+                      Semester I
+                    </td>
+
+                    <td>
+                      8.10
+                    </td>
+
+                    <td>
+                      <span class="status success">
+                        Passed
+                      </span>
+                    </td>
+
                   </tr>
 
                   <tr>
-                    <td>Semester II</td>
-                    <td>6.90</td>
-                    <td>Passed</td>
+
+                    <td>
+                      Semester II
+                    </td>
+
+                    <td>
+                      6.90
+                    </td>
+
+                    <td>
+                      <span class="status success">
+                        Passed
+                      </span>
+                    </td>
+
                   </tr>
 
                   <tr>
-                    <td>Semester III</td>
-                    <td>—</td>
-                    <td>In Progress</td>
+
+                    <td>
+                      Semester III
+                    </td>
+
+                    <td>
+                      —
+                    </td>
+
+                    <td>
+                      <span class="status warning">
+                        In Progress
+                      </span>
+                    </td>
+
                   </tr>
 
                 </tbody>
@@ -1270,11 +2830,13 @@
           id="view-records"
         >
 
-          <div class="section-heading">
+          <div class="section-header">
 
             <div>
 
-              <h2>Academic Records</h2>
+              <h2>
+                Academic Records
+              </h2>
 
               <p>
                 Academic activity and achievement records.
@@ -1285,72 +2847,95 @@
           </div>
 
 
-          <div class="dashboard-card">
+          <div class="portal-card">
 
-            <div class="records-list">
+            <div class="records">
 
-              <div class="record-item">
+
+              <div class="record">
 
                 <div class="record-icon">
                   <i class="fa-solid fa-user-check"></i>
                 </div>
 
                 <div>
-                  <strong>Student Account Created</strong>
+
+                  <strong>
+                    Student Account Created
+                  </strong>
+
                   <p>
                     Academic profile successfully registered.
                   </p>
+
                 </div>
 
               </div>
 
 
-              <div class="record-item">
+              <div class="record">
 
                 <div class="record-icon">
                   <i class="fa-solid fa-book"></i>
                 </div>
 
                 <div>
-                  <strong>Course Registration</strong>
+
+                  <strong>
+                    Course Registration
+                  </strong>
+
                   <p>
                     Current semester courses registered.
                   </p>
+
                 </div>
 
               </div>
 
 
-              <div class="record-item">
+              <div class="record">
 
                 <div class="record-icon">
                   <i class="fa-solid fa-calendar-check"></i>
                 </div>
 
                 <div>
-                  <strong>Attendance Tracking</strong>
+
+                  <strong>
+                    Attendance Tracking
+                  </strong>
+
                   <p>
-                    Attendance records are available through the portal.
+                    Attendance records are available through
+                    the academic portal.
                   </p>
+
                 </div>
 
               </div>
 
 
-              <div class="record-item">
+              <div class="record">
 
                 <div class="record-icon">
                   <i class="fa-solid fa-award"></i>
                 </div>
 
                 <div>
-                  <strong>MAR Points</strong>
+
+                  <strong>
+                    MAR Points
+                  </strong>
+
                   <p>
                     Current record: 55 points.
                   </p>
+
                 </div>
 
               </div>
+
 
             </div>
 
@@ -1377,6 +2962,7 @@
 
     <div class="modal-content">
 
+
       <div class="modal-header">
 
         <div>
@@ -1391,10 +2977,12 @@
 
         </div>
 
+
         <button
           type="button"
           class="modal-close"
           onclick="closeTimetable()"
+          aria-label="Close timetable"
         >
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -1402,26 +2990,28 @@
       </div>
 
 
-      <div class="timetable-placeholder">
+      <div class="timetable-box">
 
-        <i
-          class="fa-solid fa-calendar-days"
-          style="font-size:48px;margin-bottom:18px"
-        ></i>
+        <div class="timetable-box-icon">
+
+          <i class="fa-solid fa-file-pdf"></i>
+
+        </div>
 
         <h3>
           Official Semester Routine
         </h3>
 
         <p>
-          Your timetable PDF can be opened from the button below.
+          Open the official semester timetable PDF
+          in a new browser tab.
         </p>
 
         <a
-          href="semester-routine-timetable.pdf"
+          href="/semester-routine-timetable.pdf"
           target="_blank"
-          rel="noopener"
-          class="btn btn-primary"
+          rel="noopener noreferrer"
+          class="portal-button"
         >
           <i class="fa-solid fa-file-pdf"></i>
           Open PDF
@@ -1434,14 +3024,15 @@
   </div>
 
 
-  <!-- Existing site script -->
+  <!-- =========================================================
+       EXISTING SITE SCRIPT
+  ========================================================== -->
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 
 
   <!-- =========================================================
        COURSE / ATTENDANCE / MARKS DATA
-       These remain your current dashboard demo records.
   ========================================================== -->
 
   <script>
@@ -1524,166 +3115,188 @@
     const semesterStartIndex = 5;
 
 
-    /* COURSE TABLE */
+    /* =========================================================
+       COURSE TABLE
+    ========================================================== */
 
-    const courseNames =
+    const courseNameList =
       document.getElementById("courseNameList");
 
-    if (courseNames) {
+    if (courseNameList) {
 
-      courseNames.innerHTML = courseData.map((course) => {
+      courseNameList.innerHTML =
+        courseData.map((course) => {
 
-        return `
-          <tr>
+          return `
+            <tr>
 
-            <td>
-              <strong>${course.code}</strong>
-            </td>
+              <td>
+                <strong>${course.code}</strong>
+              </td>
 
-            <td>
-              ${course.name}
-            </td>
+              <td>
+                ${course.name}
+              </td>
 
-            <td>
-              ${course.ct1}/20
-            </td>
+              <td>
+                ${course.ct1}/20
+              </td>
 
-            <td>
-              <span class="status-badge success">
-                Active
-              </span>
-            </td>
+              <td>
+                <span class="status success">
+                  Active
+                </span>
+              </td>
 
-          </tr>
-        `;
+            </tr>
+          `;
 
-      }).join("");
+        }).join("");
 
     }
 
 
-    /* MARKS TABLE */
+    /* =========================================================
+       MARKS TABLE
+    ========================================================== */
 
     const marksRows =
       document.getElementById("marksRows");
 
     if (marksRows) {
 
-      marksRows.innerHTML = courseData.map((course) => {
+      marksRows.innerHTML =
+        courseData.map((course) => {
 
-        return `
-          <tr>
+          return `
+            <tr>
 
-            <td>
-              ${course.code}
-            </td>
+              <td>
+                ${course.code}
+              </td>
 
-            <td>
-              ${course.name}
-            </td>
+              <td>
+                ${course.name}
+              </td>
 
-            <td>
-              ${course.ct1}
-            </td>
+              <td>
+                ${course.ct1}
+              </td>
 
-            <td>
-              20
-            </td>
+              <td>
+                20
+              </td>
 
-            <td>
-              <span class="status-badge success">
-                Available
-              </span>
-            </td>
+              <td>
+                <span class="status success">
+                  Available
+                </span>
+              </td>
 
-          </tr>
-        `;
+            </tr>
+          `;
 
-      }).join("");
+        }).join("");
 
     }
 
 
-    /* ATTENDANCE */
+    /* =========================================================
+       ATTENDANCE
+    ========================================================== */
 
     const attendanceList =
-      document.getElementById("courseAttendanceList");
+      document.getElementById(
+        "courseAttendanceList"
+      );
 
     if (attendanceList) {
 
-      attendanceList.innerHTML = courseData.map((course) => {
+      attendanceList.innerHTML =
+        courseData.map((course) => {
 
-        const total =
-          course.att
-            .slice(semesterStartIndex)
-            .reduce(
-              (a, b) => a + b,
-              0
-            );
+          const total =
+            course.att
+              .slice(semesterStartIndex)
+              .reduce(
+                (sum, value) => sum + value,
+                0
+              );
 
-        const classes =
-          Math.round(total / 0.922);
 
-        const percentage =
-          classes > 0
-            ? ((total / classes) * 100).toFixed(1)
-            : "0.0";
+          const classes =
+            Math.round(total / 0.922);
 
-        return `
-          <div class="attendance-course-item">
 
-            <div class="attendance-course-header">
+          const percentage =
+            classes > 0
+              ? ((total / classes) * 100).toFixed(1)
+              : "0.0";
 
-              <div>
 
-                <strong>
-                  ${course.name}
-                </strong>
+          return `
+            <div class="attendance-item">
 
-                <small>
-                  ${course.code}
-                </small>
+              <div class="attendance-header">
+
+                <div>
+
+                  <strong>
+                    ${course.name}
+                  </strong>
+
+                  <small>
+                    ${course.code}
+                  </small>
+
+                </div>
+
+                <span class="attendance-percent">
+                  ${percentage}%
+                </span>
 
               </div>
 
-              <strong>
-                ${percentage}%
-              </strong>
+              <div class="progress">
+
+                <span
+                  style="width:${percentage}%"
+                ></span>
+
+              </div>
+
+              <small>
+                ${total} / ${classes} classes attended
+              </small>
 
             </div>
+          `;
 
-            <div class="attendance-progress">
-
-              <span
-                style="width:${percentage}%"
-              ></span>
-
-            </div>
-
-            <small>
-              ${total} / ${classes} classes attended
-            </small>
-
-          </div>
-        `;
-
-      }).join("");
+        }).join("");
 
     }
 
 
-    /* COURSE COUNT */
+    /* =========================================================
+       COURSE COUNT
+    ========================================================== */
 
     const profileCourseCount =
-      document.getElementById("profileCourseCount");
+      document.getElementById(
+        "profileCourseCount"
+      );
 
     if (profileCourseCount) {
+
       profileCourseCount.textContent =
         String(courseData.length);
+
     }
 
 
-    /* VIEW SWITCHING */
+    /* =========================================================
+       VIEW SWITCHING
+    ========================================================== */
 
     function showView(view) {
 
@@ -1701,13 +3314,18 @@
           `view-${view}`
         );
 
+
       if (selectedView) {
+
         selectedView.classList.add("active");
+
       }
 
 
       document
-        .querySelectorAll(".sidebar-link")
+        .querySelectorAll(
+          ".sidebar-link[data-view]"
+        )
         .forEach((link) => {
 
           link.classList.remove("active");
@@ -1720,15 +3338,26 @@
           `.sidebar-link[data-view="${view}"]`
         );
 
+
       if (activeLink) {
+
         activeLink.classList.add("active");
+
       }
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
 
     }
 
 
     document
-      .querySelectorAll(".sidebar-link[data-view]")
+      .querySelectorAll(
+        ".sidebar-link[data-view]"
+      )
       .forEach((link) => {
 
         link.addEventListener(
@@ -1738,10 +3367,14 @@
             event.preventDefault();
 
             const view =
-              link.getAttribute("data-view");
+              link.getAttribute(
+                "data-view"
+              );
 
             if (view) {
+
               showView(view);
+
             }
 
           }
@@ -1750,7 +3383,9 @@
       });
 
 
-    /* TIMETABLE */
+    /* =========================================================
+       TIMETABLE MODAL
+    ========================================================== */
 
     const timetableModal =
       document.getElementById(
@@ -1761,7 +3396,11 @@
     function openTimetable() {
 
       if (timetableModal) {
-        timetableModal.classList.add("show");
+
+        timetableModal.classList.add(
+          "show"
+        );
+
       }
 
     }
@@ -1770,7 +3409,11 @@
     function closeTimetable() {
 
       if (timetableModal) {
-        timetableModal.classList.remove("show");
+
+        timetableModal.classList.remove(
+          "show"
+        );
+
       }
 
     }
@@ -1792,13 +3435,31 @@
           if (
             event.target === timetableModal
           ) {
+
             closeTimetable();
+
           }
 
         }
       );
 
     }
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeTimetable();
+
+        }
+
+      }
+    );
 
   </script>
 
@@ -1809,18 +3470,21 @@
 
   <script type="module">
 
-    import {
+    import "/firebase-login.js";
+
+
+    const {
       auth,
       db,
       signOut,
       doc,
       getDoc
-    } from "/src/lib/firebase.ts";
+    } = window.bwuFirebase;
 
 
-    /*
-      Convert a name into initials.
-    */
+    /* =========================================================
+       HELPERS
+    ========================================================== */
 
     function getInitials(name) {
 
@@ -1828,17 +3492,22 @@
         return "--";
       }
 
+
       const words =
         String(name)
           .trim()
           .split(/\s+/)
           .filter(Boolean);
 
+
       if (words.length === 1) {
+
         return words[0]
           .slice(0, 2)
           .toUpperCase();
+
       }
+
 
       return (
         words[0][0] +
@@ -1848,34 +3517,6 @@
     }
 
 
-    /*
-      Safely convert Firebase values into strings.
-    */
-
-    function valueOrFallback(
-      value,
-      fallback = "Not available"
-    ) {
-
-      if (
-        value === undefined ||
-        value === null ||
-        String(value).trim() === ""
-      ) {
-        return fallback;
-      }
-
-      return String(value);
-
-    }
-
-
-    /*
-      Find a profile field from multiple possible
-      field names so it works with your existing
-      student-management structure.
-    */
-
     function firstValue(
       profile,
       fields,
@@ -1884,26 +3525,31 @@
 
       for (const field of fields) {
 
+        const value =
+          profile[field];
+
+
         if (
-          profile[field] !== undefined &&
-          profile[field] !== null &&
-          String(profile[field]).trim() !== ""
+          value !== undefined &&
+          value !== null &&
+          String(value).trim() !== ""
         ) {
 
-          return profile[field];
+          return value;
 
         }
 
       }
+
 
       return fallback;
 
     }
 
 
-    /*
-      Update all student identity elements.
-    */
+    /* =========================================================
+       RENDER PROFILE
+    ========================================================== */
 
     function renderStudentProfile(
       user,
@@ -1928,7 +3574,8 @@
         firstValue(
           profile,
           ["email"],
-          user.email || "Email not available"
+          user.email ||
+          "Email not available"
         );
 
 
@@ -2024,96 +3671,119 @@
         getInitials(name);
 
 
-      /* NAVBAR */
+      /* =======================================================
+         NAVIGATION USER
+      ======================================================== */
 
-      const navName =
+      const navStudentName =
         document.getElementById(
           "navStudentName"
         );
 
-      if (navName) {
-        navName.textContent = name;
-        navName.classList.remove(
-          "student-loading"
-        );
+
+      if (navStudentName) {
+
+        navStudentName.textContent =
+          name;
+
       }
 
 
-      const navMeta =
+      const navStudentMeta =
         document.getElementById(
           "navStudentMeta"
         );
 
-      if (navMeta) {
 
-        navMeta.textContent =
+      if (navStudentMeta) {
+
+        navStudentMeta.textContent =
           `${semester} • ${department}`;
 
       }
 
 
-      const navAvatar =
+      const navStudentAvatar =
         document.getElementById(
           "navStudentAvatar"
         );
 
-      if (navAvatar) {
-        navAvatar.textContent = initials;
+
+      if (navStudentAvatar) {
+
+        navStudentAvatar.textContent =
+          initials;
+
       }
 
 
-      /* HERO */
+      /* =======================================================
+         STUDENT HEADER
+      ======================================================== */
 
-      const heroName =
-        document.getElementById(
-          "studentName"
-        );
-
-      if (heroName) {
-        heroName.textContent = name;
-      }
-
-
-      const heroAvatar =
+      const heroStudentAvatar =
         document.getElementById(
           "heroStudentAvatar"
         );
 
-      if (heroAvatar) {
-        heroAvatar.textContent = initials;
+
+      if (heroStudentAvatar) {
+
+        heroStudentAvatar.textContent =
+          initials;
+
       }
 
 
-      const programLine =
+      const studentName =
+        document.getElementById(
+          "studentName"
+        );
+
+
+      if (studentName) {
+
+        studentName.textContent =
+          name;
+
+      }
+
+
+      const studentProgramLine =
         document.getElementById(
           "studentProgramLine"
         );
 
-      if (programLine) {
 
-        programLine.textContent =
+      if (studentProgramLine) {
+
+        studentProgramLine.textContent =
           `${program} • ${semester}`;
 
       }
 
 
-      const statusBadge =
+      const studentStatusBadge =
         document.getElementById(
           "studentStatusBadge"
         );
 
-      if (statusBadge) {
 
-        statusBadge.classList.toggle(
+      if (studentStatusBadge) {
+
+        studentStatusBadge.classList.toggle(
           "inactive",
           !isActive
         );
 
-        statusBadge.innerHTML = `
-          <span></span>
-          <strong>
-            ${isActive ? "Active Student" : "Inactive Student"}
-          </strong>
+
+        studentStatusBadge.innerHTML = `
+          <i class="fa-solid fa-circle"></i>
+          <span>
+            ${isActive
+              ? "Active Student"
+              : "Inactive Student"}
+          </span>
         `;
 
       }
@@ -2124,55 +3794,72 @@
           "studentId"
         );
 
+
       if (studentIdElement) {
+
         studentIdElement.textContent =
           studentId;
+
       }
 
 
-      const departmentElement =
+      const studentDepartment =
         document.getElementById(
           "studentDepartment"
         );
 
-      if (departmentElement) {
-        departmentElement.textContent =
+
+      if (studentDepartment) {
+
+        studentDepartment.textContent =
           department;
+
       }
 
 
-      const semesterElement =
+      const studentSemester =
         document.getElementById(
           "studentSemester"
         );
 
-      if (semesterElement) {
-        semesterElement.textContent =
+
+      if (studentSemester) {
+
+        studentSemester.textContent =
           semester;
+
       }
 
 
-      const sectionElement =
+      const studentSection =
         document.getElementById(
           "studentSection"
         );
 
-      if (sectionElement) {
-        sectionElement.textContent =
+
+      if (studentSection) {
+
+        studentSection.textContent =
           section;
+
       }
 
 
-      /* PROFILE */
+      /* =======================================================
+         PROFILE
+      ======================================================== */
 
       const profileAvatar =
         document.getElementById(
           "profileAvatar"
         );
 
+
       if (profileAvatar) {
+
         profileAvatar.textContent =
           initials;
+
       }
 
 
@@ -2181,9 +3868,12 @@
           "profileName"
         );
 
+
       if (profileName) {
+
         profileName.textContent =
           name;
+
       }
 
 
@@ -2191,6 +3881,7 @@
         document.getElementById(
           "profileProgram"
         );
+
 
       if (profileProgram) {
 
@@ -2205,9 +3896,12 @@
           "profileStudentId"
         );
 
+
       if (profileStudentId) {
+
         profileStudentId.textContent =
           studentId;
+
       }
 
 
@@ -2216,9 +3910,12 @@
           "profileEmail"
         );
 
+
       if (profileEmail) {
+
         profileEmail.textContent =
           email;
+
       }
 
 
@@ -2227,9 +3924,12 @@
           "profileDepartment"
         );
 
+
       if (profileDepartment) {
+
         profileDepartment.textContent =
           department;
+
       }
 
 
@@ -2238,9 +3938,12 @@
           "profileProgramValue"
         );
 
+
       if (profileProgramValue) {
+
         profileProgramValue.textContent =
           program;
+
       }
 
 
@@ -2249,9 +3952,12 @@
           "profileSemester"
         );
 
+
       if (profileSemester) {
+
         profileSemester.textContent =
           semester;
+
       }
 
 
@@ -2260,9 +3966,12 @@
           "profileSection"
         );
 
+
       if (profileSection) {
+
         profileSection.textContent =
           section;
+
       }
 
 
@@ -2271,9 +3980,12 @@
           "profileBatch"
         );
 
+
       if (profileBatch) {
+
         profileBatch.textContent =
           batch;
+
       }
 
 
@@ -2281,6 +3993,7 @@
         document.getElementById(
           "profileStatus"
         );
+
 
       if (profileStatus) {
 
@@ -2292,16 +4005,21 @@
       }
 
 
-      /* SEMESTER */
+      /* =======================================================
+         SEMESTER LABELS
+      ======================================================== */
 
       const overviewSemester =
         document.getElementById(
           "overviewSemester"
         );
 
+
       if (overviewSemester) {
+
         overviewSemester.textContent =
           semester;
+
       }
 
 
@@ -2310,18 +4028,24 @@
           "semesterThreeLabel"
         );
 
+
       if (semesterThreeLabel) {
+
         semesterThreeLabel.textContent =
           semester;
+
       }
 
 
-      /* TIMETABLE */
+      /* =======================================================
+         TIMETABLE
+      ======================================================== */
 
       const timetableStudentInfo =
         document.getElementById(
           "timetableStudentInfo"
         );
+
 
       if (timetableStudentInfo) {
 
@@ -2336,6 +4060,7 @@
           "timetableDescription"
         );
 
+
       if (timetableDescription) {
 
         timetableDescription.textContent =
@@ -2349,6 +4074,7 @@
           "modalStudentInfo"
         );
 
+
       if (modalStudentInfo) {
 
         modalStudentInfo.textContent =
@@ -2357,28 +4083,42 @@
       }
 
 
-      /* GLOBAL ACCESS */
+      /* =======================================================
+         GLOBAL STUDENT OBJECT
+      ======================================================== */
 
       window.bwuCurrentStudent = {
+
         uid: user.uid,
+
         email,
+
         name,
+
         studentId,
+
         department,
+
         program,
+
         semester,
+
         section,
+
         batch,
+
         academicYear,
+
         isActive
+
       };
 
     }
 
 
-    /*
-      Load Firebase profile.
-    */
+    /* =========================================================
+       LOAD LOGGED-IN STUDENT
+    ========================================================== */
 
     async function loadLoggedInStudent(user) {
 
@@ -2411,18 +4151,22 @@
         if (!profileSnapshot.exists()) {
 
           console.error(
-            "Student profile not found for UID:",
+            "Student profile not found:",
             user.uid
           );
 
+
           await signOut(auth);
+
 
           alert(
             "Your Firebase account exists, but your academic profile has not been created."
           );
 
+
           window.location.href =
             "student-login.html";
+
 
           return;
 
@@ -2433,10 +4177,9 @@
           profileSnapshot.data();
 
 
-        /*
-          Security check:
-          dashboard only accepts STUDENT accounts.
-        */
+        /* =====================================================
+           ROLE CHECK
+        ====================================================== */
 
         if (
           profile.role &&
@@ -2446,22 +4189,24 @@
 
           await signOut(auth);
 
+
           alert(
             "This account is not registered as a student account."
           );
 
+
           window.location.href =
             "student-login.html";
+
 
           return;
 
         }
 
 
-        /*
-          Security check:
-          inactive students cannot use dashboard.
-        */
+        /* =====================================================
+           ACTIVE ACCOUNT CHECK
+        ====================================================== */
 
         if (
           profile.isActive === false
@@ -2471,10 +4216,13 @@
             "Your student account is currently inactive. Please contact the administrator."
           );
 
+
           await signOut(auth);
+
 
           window.location.href =
             "student-login.html";
+
 
           return;
 
@@ -2510,7 +4258,9 @@
 
 
         try {
+
           await signOut(auth);
+
         } catch {
           // Ignore sign-out error.
         }
@@ -2524,9 +4274,9 @@
     }
 
 
-    /*
-      Firebase authentication listener.
-    */
+    /* =========================================================
+       AUTH STATE
+    ========================================================== */
 
     auth.onAuthStateChanged(
       async (user) => {
@@ -2549,9 +4299,9 @@
     );
 
 
-    /*
-      Secure logout.
-    */
+    /* =========================================================
+       LOGOUT
+    ========================================================== */
 
     const logoutButton =
       document.getElementById(
@@ -2581,6 +4331,11 @@
 
           } finally {
 
+            /*
+              User specifically wants logout
+              to return to the main landing page.
+            */
+
             window.location.href =
               "index.html";
 
@@ -2594,11 +4349,11 @@
   </script>
 
 
-  <!-- Existing BWU configuration/addons -->
+  <!-- =========================================================
+       BWU CONFIGURATION / ADDONS
+  ========================================================== -->
 
-  <script
-    src="/bwu-config.js"
-  ></script>
+  <script src="/bwu-config.js"></script>
 
   <script
     src="/bwu-addons.js"

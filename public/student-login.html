@@ -35,15 +35,17 @@
                 <div class="login-error" role="alert"></div>
                 <button class="btn btn-primary login-submit">Sign in to Student Portal <i class="fa-solid fa-arrow-right"></i></button>
             </form><div class="demo">Demo account: DeveloperS.student@srh.me / 086</div></section></div></main>
-                        <script type="module">
-  import {
+             <script type="module">
+  import "/firebase-login.js";
+
+  const {
     auth,
     db,
     signInWithEmailAndPassword,
     signOut,
     doc,
     getDoc,
-  } from "/src/lib/firebase.ts";
+  } = window.bwuFirebase;
 
   window.bwuFirebase = {
     auth,
