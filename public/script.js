@@ -1,4 +1,24 @@
 document.querySelectorAll("[data-demo-login]").forEach((form) => {
+  const waitForFirebase = () =>
+  new Promise((resolve, reject) => {
+    if (window.bwuFirebase) {
+      resolve(window.bwuFirebase);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      reject(new Error("Firebase initialization timed out."));
+    }, 10000);
+
+    window.addEventListener(
+      "bwuFirebaseReady",
+      () => {
+        clearTimeout(timeout);
+        resolve(window.bwuFirebase);
+      },
+      { once: true },
+    );
+  });
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -19,17 +39,14 @@ document.querySelectorAll("[data-demo-login]").forEach((form) => {
       return;
     }
 
-    if (!window.bwuFirebase) {
-      message.textContent = "Firebase is not available. Please try again.";
-      message.classList.add("show");
-      return;
-    }
+
 
     button.disabled = true;
     button.classList.add("loading");
     message.classList.remove("show");
 
     try {
+      await waitForFirebase();
       const {
         auth,
         db,
