@@ -648,15 +648,44 @@
 
   <script type="module">
 
-    import {
-      auth,
-      db,
-      createUserWithEmailAndPassword,
-      signOut,
-      doc,
-      setDoc,
-      serverTimestamp
-    } from "/src/lib/firebase.ts";
+      import "/firebase-login.js";
+
+const waitForFirebase = () =>
+  new Promise((resolve, reject) => {
+
+    if (window.bwuFirebase) {
+      resolve(window.bwuFirebase);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      reject(
+        new Error(
+          "Firebase initialization timed out."
+        )
+      );
+    }, 10000);
+
+    window.addEventListener(
+      "bwuFirebaseReady",
+      () => {
+        clearTimeout(timeout);
+        resolve(window.bwuFirebase);
+      },
+      { once: true }
+    );
+
+  });
+
+const {
+  auth,
+  db,
+  createUserWithEmailAndPassword,
+  signOut,
+  doc,
+  setDoc,
+  serverTimestamp
+} = await waitForFirebase();
 
     const addStudentBtn =
       document.getElementById("addStudentBtn");
